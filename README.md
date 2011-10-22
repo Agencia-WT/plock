@@ -69,3 +69,4 @@ CREATE  TABLE IF NOT EXISTS `clientes` (
 ENGINE = InnoDB
 ```
 
+#### Divirta-se !
