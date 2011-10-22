@@ -36,3 +36,7 @@
 2011-10-22 09:38:57 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 44]
 2011-10-22 10:11:21 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 45]
 2011-10-22 11:07:46 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 45]
+2011-10-22 11:20:18 Warning: Warning (2): preg_match() [<a href='http://php.net/function.preg-match'>function.preg-match</a>]: Delimiter must not be alphanumeric or backslash in [/Applications/MAMP/htdocs/plock/cake/libs/model/model.php, line 2611]
+2011-10-22 11:20:40 Warning: Warning (2): preg_match() [<a href='http://php.net/function.preg-match'>function.preg-match</a>]: Delimiter must not be alphanumeric or backslash in [/Applications/MAMP/htdocs/plock/cake/libs/model/model.php, line 2611]
+2011-10-22 11:21:19 Warning: Warning (2): preg_match() [<a href='http://php.net/function.preg-match'>function.preg-match</a>]: Delimiter must not be alphanumeric or backslash in [/Applications/MAMP/htdocs/plock/cake/libs/model/model.php, line 2611]
+2011-10-22 11:21:41 Warning: Warning (2): preg_match() [<a href='http://php.net/function.preg-match'>function.preg-match</a>]: Delimiter must not be alphanumeric or backslash in [/Applications/MAMP/htdocs/plock/cake/libs/model/model.php, line 2611]

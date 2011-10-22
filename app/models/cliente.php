@@ -9,16 +9,12 @@ class Cliente extends AppModel
 {
 	var $name = 'Cliente';
 
+
 	var $validate = array(
-		'nome' => array(
-			'alphaNumeric' => array(
-				'rule' => 'alphaNumeric',
-				'required' => true,
-				'message' => 'Preencha este campo',
-				'on' => 'create'
-				)
-		)
-		
+	    'nome' => array(
+	        'rule' => array('minLength', 2),
+	        'message' => ''
+	    )
 	);
 		
 	function ultimosClientes(){
