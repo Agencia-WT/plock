@@ -26,3 +26,18 @@ var $default = array(
 	'prefix' => '',
 );
 ```
+
+```sql
+CREATE  TABLE IF NOT EXISTS `users` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `username` VARCHAR(45) NULL ,
+  `password` VARCHAR(45) NULL ,
+  `email` VARCHAR(45) NULL ,
+  `created` VARCHAR(45) NULL ,
+  `modified` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+```
+
+
