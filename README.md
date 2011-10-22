@@ -13,7 +13,7 @@
 * MySql 5.0 ou superior
 * Mode Rewrite habilitado
 
-#### Para começar, modifique o arquivo `/app/config/database.php`com os dados do seu banco de dados:
+#### Para começar, modifique o arquivo `/app/config/database.php` com os dados do seu banco de dados:
 
 ```php
 var $default = array(
