@@ -1,3 +1,4 @@
+<?php echo $this->Session->flash(); ?>
 <h1>Gerenciar clientes</h1>
 <hr>
 <table class="zebra-striped" id="tableClientes">

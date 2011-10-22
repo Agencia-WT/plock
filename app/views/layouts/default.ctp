@@ -14,6 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 	<script src="/plock/lib/alerts.js"></script>
 	<script src="/plock/lib/tableshorter.js"></script>
+	<script src="/plock/lib/modal.js"></script>
 	<script src="/plock/lib/script.js"></script>
 </head>
 <body>
