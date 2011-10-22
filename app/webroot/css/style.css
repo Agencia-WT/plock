@@ -24,3 +24,11 @@ body {
 .content-clientes-view span{
 	font-weight:bold;
 }
+
+#UserUsername{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#UserPassword{
+	margin-bottom:10px;
+}

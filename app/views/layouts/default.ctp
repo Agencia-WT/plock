@@ -26,6 +26,7 @@
           <ul class="nav">
             <li class="active"><?php echo $this->Html->link("Home","/") ?></li>
             <li><?php echo $this->Html->link("Clientes","/clientes") ?></li>
+			<li><?php echo $this->Html->link("Logout","/users/logout")?>
           </ul>
           <p class="pull-right">Logado como <a href="#"><?php echo $user['User']['username'] ?></a></p>
         </div>
@@ -54,7 +55,7 @@
 		<?php echo $content_for_layout; ?>
 
         <footer>
-          <p>&copy; Company 2011</p>
+          <p>&copy; Plock* 2011</p>
         </footer>
       </div>
     </div>	

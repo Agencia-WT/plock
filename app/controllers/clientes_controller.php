@@ -57,6 +57,12 @@ class ClientesController extends AppController{
 	
 	function search(){
 		
+		if(!empty($this->data)){
+			$data = $this->paginate('Cliente',  array('Cliente.nome LIKE' => '%'.$this->data['Cliente']['nome'].'%'));
+	
+			$this->set("data", $data);
+			$this->set("busca",$this->data['Cliente']['nome']);
+		}
 	}
 }
 ?>

@@ -20,15 +20,15 @@
 			<h4>Email</h4>
 			<div style="float:left;width:60px">
 				<span>Email 1: </span><br/>
-				<span>Senha 1: </span><br/>
+				<?php if($cliente['Cliente']['senha_1']){ ?><span>Senha 1: </span><br/><?php } ?>
 				<span>Email 2: </span><br/>
-				<span>Senha 2: </span>
+				<?php if($cliente['Cliente']['senha_2']){ ?><span>Senha 2: </span><?php } ?>
 			</div>
 			<div style="float:left">
 				<?php echo $cliente['Cliente']['email_1'] ?><br/>
-				<?php echo $cliente['Cliente']['senha_1'] ?><br/>
+				<?php if($cliente['Cliente']['senha_1']){ ?><?php echo $cliente['Cliente']['senha_1'] ?><br/><?php } ?>
 				<?php echo $cliente['Cliente']['email_2'] ?><br/>
-				<?php echo $cliente['Cliente']['senha_2'] ?><br/>
+				<?php if($cliente['Cliente']['senha_1']){ ?><?php echo $cliente['Cliente']['senha_2'] ?><br/><?php } ?>
 			</div>
 		</div>
 		<div class="span8">
