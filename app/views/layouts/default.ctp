@@ -40,7 +40,7 @@
           <ul>
             <li><?php echo $this->Html->link("Adicionar Cliente","/clientes/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Clientes","/clientes") ?></li>
-            <li><?php echo $this->Html->link("Procurar","/clientes/search") ?></li>
+            <li><?php echo $this->Html->link("Procurar","/dashboard/") ?></li>
           </ul>
           <h5>Ultimos clientes</h5>
           <ul>
