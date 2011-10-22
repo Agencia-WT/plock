@@ -1,5 +1,5 @@
 # Plock Manager
-[plock](https://github.com/hugodias/plock) é um gerenciador de clientes feito em cakephp para resolver o problema que muitas fábricas de software e agências de publicidade possue, que é guardar e gerenciar de forma fácil e prática os dados de todos seus clientes.
+[plock](https://github.com/hugodias/plock) é um gerenciador de clientes feito em cakephp para resolver o problema que muitas fábricas de software e agências de publicidade possuem, que é guardar e gerenciar de forma fácil e prática os dados de todos seus clientes.
 
 #### Ele tem:
 
