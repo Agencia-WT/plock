@@ -21,3 +21,6 @@ body {
 	float:left;
 	padding:8px 10px 5px 10px;
 }
+.content-clientes-view span{
+	font-weight:bold;
+}

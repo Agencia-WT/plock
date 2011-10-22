@@ -82,3 +82,5 @@
 2011-10-22 09:38:57 Notice: Notice (8): Undefined variable: clientes in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 44]
 2011-10-22 10:11:21 Notice: Notice (8): Undefined variable: user in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 29]
 2011-10-22 10:11:21 Notice: Notice (8): Undefined variable: clientes in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 45]
+2011-10-22 11:07:46 Notice: Notice (8): Undefined variable: user in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 29]
+2011-10-22 11:07:46 Notice: Notice (8): Undefined variable: clientes in [/Applications/MAMP/htdocs/plock/app/views/layouts/default.ctp, line 45]

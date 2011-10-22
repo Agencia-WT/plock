@@ -24,7 +24,7 @@ class ClientesController extends AppController{
 	function add(){
 		if(!empty($this->data)){
 			if($this->Cliente->save($this->data)){
-				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="/plock/clientes/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
+				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="/plock/clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 			}else{
 				$this->Session->setFlash('Você precisa informar o nome do cliente', 'flash_fail');
 			}
@@ -36,7 +36,7 @@ class ClientesController extends AppController{
 	}
 	
 	function view($id = null){
-		
+		$this->set("cliente",$this->Cliente->findById($id));
 	}
 	
 	function delete($id = null){
