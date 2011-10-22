@@ -26,7 +26,8 @@ var $default = array(
 	'prefix' => '',
 );
 ```
-
+#### Crie as tabelas
+Usuários
 ```sql
 CREATE  TABLE IF NOT EXISTS `users` (
   `id` INT NOT NULL AUTO_INCREMENT ,
@@ -39,5 +40,34 @@ CREATE  TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 ```
-
+Clientes
+```sql
+CREATE  TABLE IF NOT EXISTS `clientes` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(45) NULL ,
+  `contato_1` VARCHAR(45) NULL ,
+  `contato_2` VARCHAR(45) NULL ,
+  `ftp` VARCHAR(45) NULL ,
+  `senha_ftp` VARCHAR(45) NULL ,
+  `telefone_1` VARCHAR(45) NULL ,
+  `telefone_2` VARCHAR(45) NULL ,
+  `telefone_3` VARCHAR(45) NULL ,
+  `email_1` VARCHAR(45) NULL ,
+  `senha_1` VARCHAR(45) NULL ,
+  `email_2` VARCHAR(45) NULL ,
+  `senha_2` VARCHAR(45) NULL ,
+  `email_3` VARCHAR(45) NULL ,
+  `senha_3` VARCHAR(45) NULL ,
+  `facebook_user` VARCHAR(45) NULL ,
+  `facebook_senha` VARCHAR(45) NULL ,
+  `twitter_user` VARCHAR(45) NULL ,
+  `twitter_senha` VARCHAR(45) NULL ,
+  `flickr_user` VARCHAR(45) NULL ,
+  `flickr_senha` VARCHAR(45) NULL ,
+  `observacoes` TEXT NULL ,
+  `created` VARCHAR(45) NULL ,
+  `modified` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+```
 
