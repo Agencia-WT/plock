@@ -27,7 +27,6 @@ var $default = array(
 );
 ```
 #### Crie as tabelas
-Usuários
 ```sql
 CREATE  TABLE IF NOT EXISTS `users` (
   `id` INT NOT NULL AUTO_INCREMENT ,
@@ -40,7 +39,6 @@ CREATE  TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 ```
-Clientes
 ```sql
 CREATE  TABLE IF NOT EXISTS `clientes` (
   `id` INT NOT NULL AUTO_INCREMENT ,
