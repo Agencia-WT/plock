@@ -26,9 +26,15 @@
           <ul class="nav">
             <li class="active"><?php echo $this->Html->link("Home","/") ?></li>
             <li><?php echo $this->Html->link("Clientes","/clientes") ?></li>
-			<li><?php echo $this->Html->link("Logout","/users/logout")?>
           </ul>
+		  <form class="pull-left" action="/plock/clientes/search" method="post">
+			<input type="text" placeholder="Procurar cliente" name="data[Cliente][nome]" class="input-search-cliente-topbar">
+		  </form>
+		  <ul>
+			<li><?php echo $this->Html->link("Logout","/users/logout")?></li>
+	      </ul>
           <p class="pull-right">Logado como <a href="#"><?php echo $user['User']['username'] ?></a></p>
+
         </div>
       </div>
     </div>

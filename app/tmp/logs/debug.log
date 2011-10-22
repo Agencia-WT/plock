@@ -100,3 +100,5 @@
 2011-10-22 12:39:41 Notice: Notice (8): Undefined variable: data in [/Applications/MAMP/htdocs/plock/app/views/clientes/search.ctp, line 3]
 2011-10-22 12:40:00 Notice: Notice (8): Undefined variable: busca in [/Applications/MAMP/htdocs/plock/app/views/clientes/search.ctp, line 1]
 2011-10-22 12:40:00 Notice: Notice (8): Undefined variable: data in [/Applications/MAMP/htdocs/plock/app/views/clientes/search.ctp, line 3]
+2011-10-22 13:53:55 Notice: Notice (8): Undefined variable: busca in [/Applications/MAMP/htdocs/plock/app/views/clientes/search.ctp, line 1]
+2011-10-22 13:53:55 Notice: Notice (8): Undefined variable: data in [/Applications/MAMP/htdocs/plock/app/views/clientes/search.ctp, line 3]

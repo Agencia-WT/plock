@@ -2,7 +2,7 @@
 class ClientesController extends AppController{
 	
 	var $paginate = array(
-		'limit' => 3,
+		'limit' => 10,
 		'order' => array(
 			'Cliente.nome' => 'asc'
 		)
