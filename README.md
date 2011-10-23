@@ -12,3 +12,74 @@
 * PHP 5.1 ou superior
 * MySql 5.0 ou superior
 * Mode Rewrite habilitado
+
+
+#### Instalando
+
+Acesse o arquivo `app/config/database.php` e coloque os dados do seu banco
+``` php
+var $default = array(
+	'driver' => 'mysql',
+	'persistent' => false,
+	'host' => 'localhost',
+	'login' => 'root',
+	'password' => 'root',
+	'database' => 'plock',
+	'prefix' => '',
+);
+```
+
+#### Crie as tabelas clientes e users
+``` sql
+CREATE  TABLE IF NOT EXISTS `clientes` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(45) NULL DEFAULT NULL ,
+  `contato_1` VARCHAR(45) NULL DEFAULT NULL ,
+  `contato_2` VARCHAR(45) NULL DEFAULT NULL ,
+  `site_antigo` VARCHAR(255) NOT NULL ,
+  `site` VARCHAR(255) NOT NULL ,
+  `ftp` VARCHAR(45) NULL DEFAULT NULL ,
+  `senha_ftp` VARCHAR(45) NULL DEFAULT NULL ,
+  `telefone_1` VARCHAR(45) NULL DEFAULT NULL ,
+  `telefone_2` VARCHAR(45) NULL DEFAULT NULL ,
+  `telefone_3` VARCHAR(45) NULL DEFAULT NULL ,
+  `email_1` VARCHAR(45) NULL DEFAULT NULL ,
+  `senha_1` VARCHAR(45) NULL DEFAULT NULL ,
+  `email_2` VARCHAR(45) NULL DEFAULT NULL ,
+  `senha_2` VARCHAR(45) NULL DEFAULT NULL ,
+  `email_3` VARCHAR(45) NULL DEFAULT NULL ,
+  `senha_3` VARCHAR(45) NULL DEFAULT NULL ,
+  `facebook_user` VARCHAR(45) NULL DEFAULT NULL ,
+  `facebook_senha` VARCHAR(45) NULL DEFAULT NULL ,
+  `twitter_user` VARCHAR(45) NULL DEFAULT NULL ,
+  `twitter_senha` VARCHAR(45) NULL DEFAULT NULL ,
+  `flickr_user` VARCHAR(45) NULL DEFAULT NULL ,
+  `flickr_senha` VARCHAR(45) NULL DEFAULT NULL ,
+  `observacoes` TEXT NOT NULL ,
+  `created` VARCHAR(45) NULL DEFAULT NULL ,
+  `modified` VARCHAR(45) NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = latin1
+```
+
+``` sql
+CREATE  TABLE IF NOT EXISTS `mydb`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(255) NOT NULL ,
+  `username` VARCHAR(255) NOT NULL ,
+  `password` VARCHAR(40) NOT NULL ,
+  `email` VARCHAR(255) NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = MyISAM
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = latin1
+```
+
+#### TODO
+* Exportar clientes em CSV, XML e HTML
+
+
