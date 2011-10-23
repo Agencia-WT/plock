@@ -16,6 +16,7 @@
 	<script src="/plock/lib/tableshorter.js"></script>
 	<script src="/plock/lib/modal.js"></script>
 	<script src="/plock/lib/script.js"></script>
+	<script src="/plock/lib/export.js"></script>
 </head>
 <body>
 
@@ -47,6 +48,7 @@
             <li><?php echo $this->Html->link("Adicionar Cliente","/clientes/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Clientes","/clientes") ?></li>
             <li><?php echo $this->Html->link("Procurar","/dashboard/") ?></li>
+ 			<li><?php echo $this->Html->link("Exportar clientes","/clientes/export") ?></li>
           </ul>
           <h5>Ultimos clientes</h5>
           <ul>

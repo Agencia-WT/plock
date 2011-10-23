@@ -32,4 +32,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
+	Router::mapResources('clientes');
+	Router::parseExtensions();
+	
 	

@@ -1,6 +1,8 @@
 <?php
 class ClientesController extends AppController{
 	
+	var $components = array('RequestHandler');
+	
 	var $paginate = array(
 		'limit' => 10,
 		'order' => array(
@@ -64,5 +66,26 @@ class ClientesController extends AppController{
 			$this->set("busca",$this->data['Cliente']['nome']);
 		}
 	}
+	
+	function export(){
+
+	}
+	
+	function rest(){
+		$this->layout = 'none';
+		
+		$param = $_POST['format'];
+		
+		$clientes = $this->Cliente->find('all');
+		
+		switch($param){
+			case 'JSON':
+				$json = json_encode($clientes);
+				echo '<h3>Resultado</h3>';
+				pr($json);
+			break;
+		}		
+	}
+
 }
 ?>
