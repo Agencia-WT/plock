@@ -17,6 +17,7 @@
 #### Instalando
 
 Acesse o arquivo `app/config/database.php` e coloque os dados do seu banco
+
 ``` php
 var $default = array(
 	'driver' => 'mysql',
