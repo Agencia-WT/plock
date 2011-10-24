@@ -12,11 +12,9 @@ Demo
 #### senha: 123
 
 
+
+Ele tem:
 -----
-
-
-
-#### Ele tem:
 
 * Estrutura feita em MVC com [CakePHP](http://cakephp.org/)
 * CSS utilizando o [BOOTSTRAP](http://twitter.github.com/bootstrap/) do twitter
