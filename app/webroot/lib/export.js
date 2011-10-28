@@ -6,6 +6,15 @@
     }
     Export.prototype["export"] = function(format) {
       this.format = format;
+      switch (this.format) {
+        case "JSON":
+          return this.requestAjax(this.format);
+        case "XML":
+          return this.showForm();
+      }
+    };
+    Export.prototype.requestAjax = function(format) {
+      this.format = format;
       return $.ajax({
         type: "post",
         url: this.url,

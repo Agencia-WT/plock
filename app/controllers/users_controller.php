@@ -14,7 +14,7 @@ class UsersController extends AppController {
 		'password' => 'password'
 		);
 		$this->Auth->allow('register');
-		
+		$this->Auth->flashElement    = "auth_error";
 		$this->Auth->loginError = "Usuário e/ou senha incorreto(s)";
 		$this->Auth->authError = "Você está tentando acessar uma área restrita, faça login para continuar.";
 		

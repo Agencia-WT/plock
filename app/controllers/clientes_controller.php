@@ -1,7 +1,7 @@
 <?php
 class ClientesController extends AppController{
 	
-	var $components = array('RequestHandler');
+	var $components = array('RequestHandler','Xml2php');
 	
 	var $paginate = array(
 		'limit' => 10,
@@ -70,8 +70,45 @@ class ClientesController extends AppController{
 	}
 	
 	function export(){
+			
 
 	}
+	
+	
+	function import(){
+		
+		if(!empty($this->data)){
+			
+			$contents = file_get_contents($this->data['Clientes']['xml']['tmp_name']);
+			$result = $this->Xml2php->parse($contents);
+			
+			$clientes = $result['FileZilla3']['Servers']['Server'];
+			
+			$errorsHandler = Array();
+			
+			foreach($clientes as $c){
+				
+				$this->Cliente->create();
+				
+				$dados['Cliente']['nome'] = $c['Name'];
+				$dados['Cliente']['ftp'] = $c['Host'];
+				$dados['Cliente']['usuario_ftp'] = $c['User'];
+				$dados['Cliente']['senha_ftp'] = $c['Pass'];
+				
+				# Caso não funcione colocamos o nome de cada cliente em 1 array de erros
+				if(!$this->Cliente->save($dados)){
+					array_push($errorsHandler,$dados['Cliente']['nome']);
+				}
+				
+			}
+			
+			
+			$this->set("clientesXML",$clientes);
+		}		
+		
+		
+	}
+	
 	
 	function rest(){
 		$this->layout = 'none';

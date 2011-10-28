@@ -14,6 +14,8 @@
 		echo $scripts_for_layout;
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic&v2' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="/plock/lib/script.js"></script>
 </head>
 <body>
  <div class="topbar">

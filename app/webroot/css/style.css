@@ -32,3 +32,10 @@ body {
 #UserPassword{
 	margin-bottom:10px;
 }
+.tumb_cliente_export_xml{
+	float:left;
+	border-bottom:1px solid #999;
+	clear:both;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}

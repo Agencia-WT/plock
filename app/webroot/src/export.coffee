@@ -3,15 +3,19 @@ class Export
 		@url = "/plock/clientes/rest"
 		
 	export: (@format) ->
-	
-		$.ajax
-			type: "post",
-			url: @url,
-			data: "format="+@format
-			success: (data) ->
-				$("#resultREST").html data
-					
-				
+										
+		switch @format
+			when "JSON" then @requestAjax @format
+			when "XML" then @showForm()	
+			
+	requestAjax: (@format) ->
+				$.ajax
+					type: "post",
+					url: @url,
+					data: "format="+@format
+					success: (data) ->
+						$("#resultREST").html data
+														
 
 $ ->
 	$('.exportBtn').click ->
