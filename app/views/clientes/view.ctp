@@ -35,10 +35,12 @@
 			<h4>FTP</h4>
 			<div style="float:left;width:80px">
 				<span>FTP:</span><br/>
+				<span>Usuário: </span><br/>
 				<span>Senha FTP:</span>
 			</div>
 			<div style="float:left">
 				<?php echo $cliente['Cliente']['ftp'] ?><br/>
+				<?php echo $cliente['Cliente']['usuario_ftp'] ?><br/>
 				<?php echo $cliente['Cliente']['senha_ftp'] ?><br/>
 			</div>
 			<div class="clear"></div>

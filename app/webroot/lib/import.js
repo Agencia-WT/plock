@@ -10,7 +10,7 @@
     };
     Import.prototype.showForm = function() {
       var area, conteudo;
-      conteudo = "<div>		<form method='post' enctype='multipart/form-data' action='" + this.url + "'>		Arquivo: <input type='file' name='data[Clientes][xml]'/>		<input type='submit' value='enviar'/>		</form>		</div>";
+      conteudo = "<div>		<form method='post' enctype='multipart/form-data' action='" + this.url + "'>		Arquivo: <input type='file' name='data[Clientes][xml]'/><br/>		<input type='submit' value='enviar' class='btn primary'/>		</form>		</div>";
       return area = $('#resultREST').html(conteudo);
     };
     return Import;

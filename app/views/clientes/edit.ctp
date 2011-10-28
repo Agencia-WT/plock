@@ -74,6 +74,12 @@
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
+				     <label for="xlInput">Usuário do FTP</label>
+				     <div class="input">
+				         <input class="xlarge" id="xlInput" name="data[Cliente][usuario_ftp]" value="<?php echo $cliente['Cliente']['usuario_ftp']; ?>" size="30" type="text" />
+				      </div>
+				</div><!-- /clearfix -->				
+				<div class="clearfix">
 				     <label for="xlInput">Senha do FTP</label>
 				     <div class="input">
 				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_ftp]" value="<?php echo $cliente['Cliente']['senha_ftp'] ?>" size="30" type="text" />

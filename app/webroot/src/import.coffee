@@ -9,8 +9,8 @@ class Import
 	showForm: ->
 		conteudo = "<div>
 		<form method='post' enctype='multipart/form-data' action='"+@url+"'>
-		Arquivo: <input type='file' name='data[Clientes][xml]'/>
-		<input type='submit' value='enviar'/>
+		Arquivo: <input type='file' name='data[Clientes][xml]'/><br/>
+		<input type='submit' value='enviar' class='btn primary'/>
 		</form>
 		</div>"	
 		area = $('#resultREST').html conteudo
