@@ -20,6 +20,7 @@ Ele tem:
 * CSS utilizando o [BOOTSTRAP](http://twitter.github.com/bootstrap/) do twitter
 * Front-end construido utilizando [CoffeeScript](http://jashkenas.github.com/coffee-script/)
 * Importação de arquivos XML do Filezilla
+* Validação automática do ftp de cada cliente informando se está acessível ou não
 * Controle de usuários
 
 #### Para utilizar você precisa ter:
@@ -97,6 +98,7 @@ DEFAULT CHARACTER SET = latin1
 
 #### TODO
 * Exportar clientes em CSV, XML e HTML
+* Integrar cada cliente com suas respectivas tarefas no [BASECAMP](http://basecamphq.com/) mostrando tarefas pendentes
 
 
 Twitter Bootstrap Copyright and license
