@@ -37,11 +37,14 @@
 				<span>FTP:</span><br/>
 				<span>Usuário: </span><br/>
 				<span>Senha FTP:</span>
+				<span>Status: </span>
 			</div>
 			<div style="float:left">
 				<?php echo $cliente['Cliente']['ftp'] ?><br/>
 				<?php echo $cliente['Cliente']['usuario_ftp'] ?><br/>
 				<?php echo $cliente['Cliente']['senha_ftp'] ?><br/>
+				<?php echo $this->Ftp->check($cliente['Cliente']['ftp'],$cliente['Cliente']['usuario_ftp'],$cliente['Cliente']['senha_ftp']); ?>
+				
 			</div>
 			<div class="clear"></div>
 			<hr>

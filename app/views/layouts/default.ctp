@@ -8,7 +8,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('style');
+		echo $this->Html->css('style');	
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic&v2' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>

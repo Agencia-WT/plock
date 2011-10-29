@@ -4,4 +4,4 @@
 </form>
 <hr>
 <h3>Dados</h3>
-<strong>Clientes cadastrados: </strong><?php echo count($clientes) ?>
+<strong>Clientes cadastrados: </strong><?php echo $nclientes ?>

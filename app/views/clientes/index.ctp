@@ -7,6 +7,7 @@
 			<th class="yellow header headerSortDown">Nome</th>
 			<th class="blue header">Telefone</th>
 			<th class="green header">FTP</th>
+			<th class="green header">Usuário</th>
 			<th class="green header">Senha FTP</ht>
 			<th>Email</th>
 			<th>#</th>
@@ -18,6 +19,7 @@
 				<td><?php echo $d['Cliente']['nome'] ?></td>
 				<td><?php echo $d['Cliente']['telefone_1'] ?></td>
 				<td><?php echo $d['Cliente']['ftp'] ?></td>
+				<td><?php echo $d['Cliente']['usuario_ftp'] ?></td>
 				<td><?php echo $d['Cliente']['senha_ftp'] ?></td>
 				<td><?php echo $d['Cliente']['email_1'] ?></td>
 				<td><?php echo $this->Html->link("visualizar","/clientes/view/".$d['Cliente']['id']) ?>

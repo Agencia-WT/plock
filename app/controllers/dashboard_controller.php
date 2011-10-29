@@ -2,7 +2,6 @@
 	class DashboardController extends AppController {
 
 		  var $name = 'Dashboard';
-		  var $components = array('Auth','Session');
 		  var $uses = array("User","Cliente");
 		
 		  function beforeFilter(){
@@ -13,6 +12,7 @@
 		  }
 		  function index () {
 			   $this->set('user', $this->Auth->user());
+			   $this->set('nclientes', $this->Cliente->find('count'));
 		  }
 	}
 ?>

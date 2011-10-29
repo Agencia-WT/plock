@@ -3,7 +3,7 @@ class ClientesController extends AppController{
 	
 	var $name = 'Clientes';
 	var $components = array('RequestHandler','Xml2php');
-	var $helpers = array('Html','Form');
+	var $helpers = array('Html','Form','Ftp');
 	
 	var $paginate = array(
 		'limit' => 10,
@@ -63,12 +63,18 @@ class ClientesController extends AppController{
 	
 	function search(){
 		
+		# Caso esteja enviando um post, guarda a busca em uma variavel de sessão
 		if(!empty($this->data)){
-			$data = $this->paginate('Cliente',  array('Cliente.nome LIKE' => '%'.$this->data['Cliente']['nome'].'%'));
-	
-			$this->set("data", $data);
-			$this->set("busca",$this->data['Cliente']['nome']);
+			@$_SESSION['busca'] = $this->data['Cliente']['nome'];
 		}
+		
+		$data = $this->paginate('Cliente',  array('Cliente.nome LIKE' => '%'.@$_SESSION['busca'].'%'));
+		
+		$this->set("data", $data);
+		$this->set("busca",@$_SESSION['busca']);
+		
+		
+		
 	}
 	
 	function export(){
@@ -82,6 +88,7 @@ class ClientesController extends AppController{
 		if(!empty($this->data)){
 			
 			$contents = file_get_contents($this->data['Clientes']['xml']['tmp_name']);
+			
 			$result = $this->Xml2php->parse($contents);
 			
 			$clientes = $result['FileZilla3']['Servers']['Server'];
