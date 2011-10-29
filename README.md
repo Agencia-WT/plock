@@ -19,7 +19,7 @@ Ele tem:
 * Estrutura feita em MVC com [CakePHP](http://cakephp.org/)
 * CSS utilizando o [BOOTSTRAP](http://twitter.github.com/bootstrap/) do twitter
 * Front-end construido utilizando [CoffeeScript](http://jashkenas.github.com/coffee-script/)
-* Importação de arquivos XML do Filezilla
+* Importação de arquivos XML do [Filezilla](http://filezilla-project.org/)
 * Validação automática do ftp de cada cliente informando se está acessível ou não
 * Controle de usuários
 
@@ -27,6 +27,10 @@ Ele tem:
 * PHP 5.1 ou superior
 * MySql 5.0 ou superior
 * Mode Rewrite habilitado
+
+##### Para desenvolver
+* [Node.js](http://nodejs.org/)
+* [CoffeeScript](http://jashkenas.github.com/coffee-script/)
 
 
 #### Instalando
