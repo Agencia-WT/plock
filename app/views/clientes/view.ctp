@@ -30,22 +30,7 @@
 				<?php echo $cliente['Cliente']['email_2'] ?><br/>
 				<?php if($cliente['Cliente']['senha_1']){ ?><?php echo $cliente['Cliente']['senha_2'] ?><br/><?php } ?>
 			</div>
-		</div>
-		<div class="span8">
-			<h4>FTP</h4>
-			<div style="float:left;width:80px">
-				<span>FTP:</span><br/>
-				<span>Usuário: </span><br/>
-				<span>Senha FTP:</span>
-				<span>Status: </span>
-			</div>
-			<div style="float:left">
-				<?php echo $cliente['Cliente']['ftp'] ?><br/>
-				<?php echo $cliente['Cliente']['usuario_ftp'] ?><br/>
-				<?php echo $cliente['Cliente']['senha_ftp'] ?><br/>
-				<?php echo $this->Ftp->check($cliente['Cliente']['ftp'],$cliente['Cliente']['usuario_ftp'],$cliente['Cliente']['senha_ftp']); ?>
-				
-			</div>
+			
 			<div class="clear"></div>
 			<hr>
 			<h4>Dados complementares</h4>
@@ -54,7 +39,48 @@
 			</div>
 			<div style="float:left">
 				<?php echo nl2br($cliente['Cliente']['observacoes']) ?>
+			</div>			
+			
+			
+			
+		</div>
+		<div class="span8">
+			<h4>FTP's</h4>
+			<?php foreach($cliente['Ftp'] as $f){ 
+			 	$status = $this->Ftpcheck->check($f['host'],$f['username'],$f['password']); 
+			?>
+				
+			<div class="well box-ftps">
+				<div style="float:left;width:80px">
+					<span>Host:</span><br/>
+					<span>Usuário: </span><br/>
+					<span>Senha FTP:</span>
+					<span>Status: </span>
+					<span>&nbsp;</span>
+				</div>
+				<div style="float:left">
+					<?php echo $f['host'] ?><br/>
+					<?php echo $f['username'] ?><br/>
+					<?php echo $f['password'] ?><br/>
+					<?php echo $status ?><br/><br/>
+					<div class="actions-buttons">
+						<div>
+						<?php echo $this->Html->link("Editar","/ftps/edit/".$f['id'], array('class' => 'link-editar')) ?> | 
+						<?php echo $this->Html->link("Remover","/ftps/delete/".$f['id'], array('class' => 'link-remover')) ?>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				
 			</div>
+			<div class="clear"></div>
+			
+			<?php } ?>
+			<div class="clear"></div>
+			<br/>
+			<a href="/plock/ftps/add/<?php echo $cliente['Cliente']['id'] ?>">
+				<button class="btn small">Adicionar FTP</button>
+			</a>
 		</div>
 	</div>
 </div>

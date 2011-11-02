@@ -8,7 +8,12 @@
 class Cliente extends AppModel
 {
 	var $name = 'Cliente';
-
+	var $hasMany = array(
+	    'Ftp' => array(
+	        'className'     => 'Ftp',
+	        'foreignKey'    => 'clientes_id',
+	    )
+	);  	
 
 	var $validate = array(
 	    'nome' => array(

@@ -12,10 +12,16 @@
     $(".closemodal").live("click", function() {
       return $('#modal-delete-cliente').modal('hide');
     });
-    return $('.input-search-cliente-topbar').keypress(function(event) {
+    $('.input-search-cliente-topbar').keypress(function(event) {
       if (event.which === "13") {
         return $(this).parent().submit();
       }
+    });
+    $('.box-ftps').mouseover(function() {
+      return $(this).children().children('.actions-buttons').children().show();
+    });
+    return $('.box-ftps').mouseout(function() {
+      return $(this).children().children('.actions-buttons').children().hide();
     });
   });
 }).call(this);

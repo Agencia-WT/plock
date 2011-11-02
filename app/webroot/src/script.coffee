@@ -1,4 +1,5 @@
 $ ->
+	
 	$('.close').live "click", ->
 		$(@).parent().hide 300
 		
@@ -13,3 +14,8 @@ $ ->
 	$('.input-search-cliente-topbar').keypress (event) ->
 		if event.which is "13" then $(@).parent().submit()
 		
+	$('.box-ftps').mouseover ->
+		$(@).children().children('.actions-buttons').children().show()
+		
+	$('.box-ftps').mouseout ->
+		$(@).children().children('.actions-buttons').children().hide()

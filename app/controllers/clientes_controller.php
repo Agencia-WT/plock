@@ -3,7 +3,8 @@ class ClientesController extends AppController{
 	
 	var $name = 'Clientes';
 	var $components = array('RequestHandler','Xml2php');
-	var $helpers = array('Html','Form','Ftp');
+	var $helpers = array('Html','Form','Ftpcheck');
+	var $uses = array("Cliente","Ftp");
 	
 	var $paginate = array(
 		'limit' => 10,
@@ -20,6 +21,8 @@ class ClientesController extends AppController{
 		
 		# Cria uma variavel com os ultimos 5 clientes modificados
 		$this->set("clientes",$this->Cliente->ultimosClientes());
+		
+		$this->set("active_menu","clientes");
 	}
 	
 	function index(){
@@ -30,6 +33,15 @@ class ClientesController extends AppController{
 	function add(){
 		if(!empty($this->data)){
 			if($this->Cliente->save($this->data)){
+				
+				$dados['Ftp']['host'] = $this->data['Cliente']['ftp'];
+				$dados['Ftp']['username'] = $this->data['Cliente']['usuario_ftp'];
+				$dados['Ftp']['password'] = $this->data['Cliente']['senha_ftp'];
+				$dados['Ftp']['clientes_id'] = $this->Cliente->id;
+				
+				# Salva o FTP do cliente
+				$this->Ftp->save($dados);
+				
 				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="/plock/clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 			}else{
 				$this->Session->setFlash('Você precisa informar o nome do cliente', 'flash_fail');
@@ -98,16 +110,21 @@ class ClientesController extends AppController{
 			foreach($clientes as $c){
 				
 				$this->Cliente->create();
-				
 				$dados['Cliente']['nome'] = $c['Name'];
-				$dados['Cliente']['ftp'] = $c['Host'];
-				$dados['Cliente']['usuario_ftp'] = $c['User'];
-				$dados['Cliente']['senha_ftp'] = $c['Pass'];
 				
 				# Caso não funcione colocamos o nome de cada cliente em 1 array de erros
 				if(!$this->Cliente->save($dados)){
 					array_push($errorsHandler,$dados['Cliente']['nome']);
 				}
+				
+				$this->Ftp->create();
+				
+				$dados2['Ftp']['host'] = $c['Host'];
+				$dados2['Ftp']['username'] = $c['User'];
+				$dados2['Ftp']['password'] = $c['Pass'];
+				$dados2['Ftp']['clientes_id'] = $this->Cliente->id;
+				
+				$this->Ftp->save($dados2);
 				
 			}
 			

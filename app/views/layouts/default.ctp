@@ -26,8 +26,8 @@
         <div class="container-fluid">
           <a class="brand" href="/plock">Plock</a>
           <ul class="nav">
-            <li class="active"><?php echo $this->Html->link("Home","/") ?></li>
-            <li><?php echo $this->Html->link("Clientes","/clientes") ?></li>
+            <li <?php if($active_menu == 'home'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Home","/") ?></li>
+            <li <?php if($active_menu == 'clientes'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Clientes","/clientes") ?></li>
           </ul>
 		  <form class="pull-left" action="/plock/clientes/search" method="post">
 			<input type="text" placeholder="Procurar cliente" name="data[Cliente][nome]" class="input-search-cliente-topbar">
@@ -45,7 +45,7 @@
       <div class="sidebar">
         <div class="well">
           <h5>Clientes</h5>
-          <ul>
+          <ul class="list-sidebar">
             <li><?php echo $this->Html->link("Adicionar Cliente","/clientes/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Clientes","/clientes") ?></li>
             <li><?php echo $this->Html->link("Procurar","/dashboard/") ?></li>

@@ -68,21 +68,12 @@
 			<div class="span8">
 
 				<div class="clearfix">
-				     <label for="xlInput">FTP</label>
+				     <label for="xlInput">FTP's</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][ftp]" value="<?php echo $cliente['Cliente']['ftp'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Usuário do FTP</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][usuario_ftp]" value="<?php echo $cliente['Cliente']['usuario_ftp']; ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->				
-				<div class="clearfix">
-				     <label for="xlInput">Senha do FTP</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_ftp]" value="<?php echo $cliente['Cliente']['senha_ftp'] ?>" size="30" type="text" />
+				        <?php foreach($cliente['Ftp'] as $f){ 
+							echo $f['host']." &nbsp;&nbsp; ".$this->Html->link("editar", "/ftps/edit/".$f['id']);
+							echo '<br/>';
+						 } ?>
 				      </div>
 				</div><!-- /clearfix -->
 				<hr>
