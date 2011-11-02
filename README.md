@@ -106,7 +106,7 @@ CREATE  TABLE IF NOT EXISTS `tasks` (
   INDEX `fk_tasks_clientes` (`clientes_id` ASC) ,
   CONSTRAINT `fk_tasks_clientes`
     FOREIGN KEY (`clientes_id` )
-    REFERENCES `plock`.`clientes` (`id` )
+    REFERENCES `clientes` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
