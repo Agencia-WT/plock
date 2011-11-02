@@ -53,7 +53,7 @@
  			<li><?php echo $this->Html->link("Exportar clientes","/clientes/export") ?></li>
           </ul>
           <h5>Ultimos clientes</h5>
-          <ul>
+          <ul class="list-sidebar">
 			<?php foreach($clientes as $c){ ?>
 				<li><?php echo $this->Html->link($c['Cliente']['nome'],"/clientes/view/".$c['Cliente']['id']) ?>
 			<?php } ?>

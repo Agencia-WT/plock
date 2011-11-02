@@ -175,3 +175,5 @@
 2011-11-02 01:11:01 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/clientes/view.ctp, line 49]
 2011-11-02 01:11:58 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/clientes/view.ctp, line 49]
 2011-11-02 01:12:19 Warning: Warning (2): Invalid argument supplied for foreach() in [/Applications/MAMP/htdocs/plock/app/views/clientes/view.ctp, line 49]
+2011-11-02 09:15:18 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1451: Cannot delete or update a parent row: a foreign key constraint fails (`plock`.`ftps`, CONSTRAINT `fk_ftps_clientes1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)</span> in [/Applications/MAMP/htdocs/plock/cake/libs/model/datasources/dbo_source.php, line 684]
+2011-11-02 09:15:18 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/plock/cake/libs/debugger.php:673) in [/Applications/MAMP/htdocs/plock/cake/libs/controller/controller.php, line 742]

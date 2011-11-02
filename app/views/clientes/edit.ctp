@@ -1,96 +1,116 @@
-<h2>Editar Cliente <?php echo $cliente['Cliente']['nome'] ?></h2>
+<h2>Editar Cliente <?php echo $cliente['Cliente']['nome'] ?> 
+	<a href="/plock/clientes/view/<?php echo $cliente['Cliente']['id'] ?>"><button class="btn info small" style="float:right">Finalizar edição</button></a></h2>
 <hr>
 <?php echo $this->Session->flash(); ?>
 <form id="ClienteAddForm" method="post" action="" accept-charset="utf-8">
-	<fieldset>
-		<legend>Dados Pessoais</legend>
+
 		<div class="row">
 			<div class="span8">
-				
-				<div class="clearfix">
-				     <label for="xlInput">Nome</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][nome]" value="<?php echo $cliente['Cliente']['nome'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Contato 1</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][contato_1]" value="<?php echo $cliente['Cliente']['contato_1'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Contato 2</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][contato_2]" value="<?php echo $cliente['Cliente']['contato_2'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Telefone 1</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_1]" value="<?php echo $cliente['Cliente']['telefone_1'] ?>" size="30" type="text"/>
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Telefone 2</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_2]" value="<?php echo $cliente['Cliente']['telefone_2'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->				
+				<fieldset>
+					<legend>Dados Pessoais</legend>
+					<div class="clearfix">
+					     <label for="xlInput">Nome</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][nome]" value="<?php echo $cliente['Cliente']['nome'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Contato 1</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][contato_1]" value="<?php echo $cliente['Cliente']['contato_1'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Contato 2</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][contato_2]" value="<?php echo $cliente['Cliente']['contato_2'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Telefone 1</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_1]" value="<?php echo $cliente['Cliente']['telefone_1'] ?>" size="30" type="text"/>
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Telefone 2</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_2]" value="<?php echo $cliente['Cliente']['telefone_2'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->				
+				</fieldset>
 				<hr>
-				<legend>Email</legend>
-				<br/>
-				<div class="clearfix">
-				     <label for="xlInput">Email 1</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][email_1]" value="<?php echo $cliente['Cliente']['email_1'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Senha 1</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_1]" value="<?php echo $cliente['Cliente']['senha_1'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->				
-				<div class="clearfix">
-				     <label for="xlInput">Email 2</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][email_2]" value="<?php echo $cliente['Cliente']['email_2'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Senha 2</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_2]" value="<?php echo $cliente['Cliente']['senha_2'] ?>" size="30" type="text" />
-				      </div>
-				</div><!-- /clearfix -->				
+				<fieldset>
+					<legend>Email</legend>
+					<br/>
+					<div class="clearfix">
+					     <label for="xlInput">Email 1</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][email_1]" value="<?php echo $cliente['Cliente']['email_1'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Senha 1</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][senha_1]" value="<?php echo $cliente['Cliente']['senha_1'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->				
+					<div class="clearfix">
+					     <label for="xlInput">Email 2</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][email_2]" value="<?php echo $cliente['Cliente']['email_2'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+					<div class="clearfix">
+					     <label for="xlInput">Senha 2</label>
+					     <div class="input">
+					         <input class="xlarge" id="xlInput" name="data[Cliente][senha_2]" value="<?php echo $cliente['Cliente']['senha_2'] ?>" size="30" type="text" />
+					      </div>
+					</div><!-- /clearfix -->
+				</fieldset>	<!-- /fieldset -->			
 			</div><!-- /span6 -->	
 			<div class="span8">
 
 				<div class="clearfix">
-				     <label for="xlInput">FTP's</label>
-				     <div class="input">
+					<fieldset>
+					<legend style="padding-left:0px">Ftp's</legend>
+					<table class="zebra-striped" id="tableClientes">
+						<thead>
+							<tr>
+								<td>Host</td>
+								<td>#</td>
+							</tr>
+						</thead>
+						<tbody>
 				        <?php foreach($cliente['Ftp'] as $f){ 
-							echo $f['host']." &nbsp;&nbsp; ".$this->Html->link("editar", "/ftps/edit/".$f['id']);
-							echo '<br/>';
+							echo '<tr>';
+							echo '<td>'.$f['host']."</td>";
+							echo '<td>'.$this->Html->link("editar", "/ftps/edit/".$f['id']).'</td>';
+							echo '</tr>';
 						 } ?>
-				      </div>
+						</tbody>
+					</table>
+					<a href="/plock/ftps/add/<?php echo $cliente['Cliente']['id'] ?>">
+						<button class="btn small">Adicionar FTP</button>
+					</a>
+					</fieldset>
 				</div><!-- /clearfix -->
 				<hr>
-				<div class="clearfix">
-				     <label for="xlInput">Observações</label>
-				     <div class="input">
-				        <textarea class="span5" id="textarea2" rows="10" name="data[Cliente][observacoes]"><?php echo $cliente['Cliente']['observacoes'] ?></textarea> 
-						<span class="help-block">
-							Digite aqui informações complementares como endereço, sites de referência para o projeto, etc ..
-						</span>
-				      </div>
-				</div><!-- /clearfix -->
+				<fieldset>
+					<div class="clearfix">
+					     <label for="xlInput">Observações</label>
+					     <div class="input">
+					        <textarea class="span5" id="textarea2" rows="10" name="data[Cliente][observacoes]"><?php echo $cliente['Cliente']['observacoes'] ?></textarea> 
+							<span class="help-block">
+								Digite aqui informações complementares como endereço, sites de referência para o projeto, etc ..
+							</span>
+					      </div>
+					</div><!-- /clearfix -->
+				</fieldset>
 				<hr>				
 				<div class="actions"> 
 				    <button class="btn primary">Salvar Cliente</button>
 				</div><!-- /actions -->								
 			</div>	
 		</div>
-	</fieldset>
 </form>

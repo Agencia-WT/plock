@@ -66,23 +66,28 @@
 				</div><!-- /clearfix -->				
 			</div><!-- /span6 -->	
 			<div class="span8">
-
 				<div class="clearfix">
-				     <label for="xlInput">FTP</label>
+				     <label for="xlInput">Domínio</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][ftp]" size="30" type="text" tabindex="10" />
+				         <input class="xlarge" id="xlInput" name="data[Cliente][dominio]" placeholder="ex: www.teste.com.br" size="30" type="text" tabindex="10" />
+				      </div>
+				</div><!-- /clearfix -->
+				<div class="clearfix">
+				     <label for="xlInput">Host</label>
+				     <div class="input">
+				         <input class="xlarge" id="xlInput" name="data[Cliente][ftp]" placeholder="ex: ftp.teste.com.br" size="30" type="text" tabindex="10" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
 				     <label for="xlInput">Usuário do FTP</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][usuario_ftp]" size="30" type="text" tabindex="11" />
+				         <input class="xlarge" id="xlInput" name="data[Cliente][usuario_ftp]" placeholder="ex: teste" size="30" type="text" tabindex="11" />
 				      </div>
 				</div><!-- /clearfix -->				
 				<div class="clearfix">
 				     <label for="xlInput">Senha do FTP</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_ftp]" size="30" type="text" tabindex="12" />
+				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_ftp]" placeholder="ex: 8ks7Jnsj2" size="30" type="text" tabindex="12" />
 				      </div>
 				</div><!-- /clearfix -->
 				<hr>

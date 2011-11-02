@@ -34,6 +34,7 @@ class ClientesController extends AppController{
 		if(!empty($this->data)){
 			if($this->Cliente->save($this->data)){
 				
+				$dados['Ftp']['dominio'] = $this->data['Cliente']['dominio'];
 				$dados['Ftp']['host'] = $this->data['Cliente']['ftp'];
 				$dados['Ftp']['username'] = $this->data['Cliente']['usuario_ftp'];
 				$dados['Ftp']['password'] = $this->data['Cliente']['senha_ftp'];

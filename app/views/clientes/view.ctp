@@ -1,5 +1,7 @@
 <div class="content-clientes-view">
+	<div style="border-bottom:1px solid #EEE;margin-bottom:10px">
 	<h2><?php echo $cliente['Cliente']['nome'] ?></h2>
+	</div>
 	<a href="/plock/clientes/edit/<?php echo $cliente['Cliente']['id'] ?>"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
 	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:right">Deletar cliente</button>
 	<hr>
@@ -52,6 +54,7 @@
 				
 			<div class="well box-ftps">
 				<div style="float:left;width:80px">
+					<span>Domínio:</span><br/>
 					<span>Host:</span><br/>
 					<span>Usuário: </span><br/>
 					<span>Senha FTP:</span>
@@ -59,6 +62,7 @@
 					<span>&nbsp;</span>
 				</div>
 				<div style="float:left">
+					<?php echo $f['dominio'] ?><br/>
 					<?php echo $f['host'] ?><br/>
 					<?php echo $f['username'] ?><br/>
 					<?php echo $f['password'] ?><br/>
@@ -77,7 +81,6 @@
 			
 			<?php } ?>
 			<div class="clear"></div>
-			<br/>
 			<a href="/plock/ftps/add/<?php echo $cliente['Cliente']['id'] ?>">
 				<button class="btn small">Adicionar FTP</button>
 			</a>

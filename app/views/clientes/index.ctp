@@ -5,8 +5,7 @@
 	<thead>
 		<tr>
 			<th class="yellow header headerSortDown">Nome</th>
-			<th class="blue header">Telefone</th>
-			<th class="green header">FTP</th>
+			<th class="green header">Host</th>
 			<th class="green header">Usuário</th>
 			<th class="green header">Senha FTP</ht>
 			<th>Email</th>
@@ -17,7 +16,6 @@
 		<?php foreach($data as $d){ ?>
 			<tr>
 				<td><?php echo $d['Cliente']['nome'] ?></td>
-				<td><?php echo $d['Cliente']['telefone_1'] ?></td>
 				<td><?php echo @$d['Ftp'][0]['host'] ?></td>
 				<td><?php echo @$d['Ftp'][0]['username'] ?></td>
 				<td><?php echo @$d['Ftp'][0]['password'] ?></td>

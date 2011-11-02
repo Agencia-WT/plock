@@ -11,9 +11,9 @@ class FtpcheckHelper extends AppHelper
 		@$login = ftp_login($f, $username, $password); 
 		
 		if($login){
-			return "<span class='status-ftp success'>Validado</span>";
+			return "<span class='label success'>Validado</span>";
 		}else{
-			return "<span class='status-ftp failed'>Falha na conexão</span>";
+			return "<span class='label important'>Falha na conexão</span>";
 		}
 		
 		
