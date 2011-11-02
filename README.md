@@ -1,9 +1,9 @@
-# Plock Manager v0.2
+# Plock Manager v0.3
 [plock](https://github.com/hugodias/) é um gerenciador de clientes feito em cakephp para resolver o problema que muitas fábricas de software e agências de publicidade possuem, que é guardar e gerenciar de forma fácil e prática os dados de todos seus clientes.
 
 
 
-Demo
+Demo ( Versão antiga 0.1)
 -----
 [http://api.pitchbox.com.br](http://api.pitchbox.com.br)
 
@@ -49,7 +49,7 @@ var $default = array(
 );
 ```
 
-#### Crie as tabelas clientes e users
+#### Crie as tabelas clientes e users e ftps
 
 ``` sql
 CREATE  TABLE IF NOT EXISTS `clientes` (
@@ -116,6 +116,7 @@ ENGINE = InnoDB;
 #### TODO
 * Exportar clientes em CSV, XML e HTML
 * Integrar cada cliente com suas respectivas tarefas no [BASECAMP](http://basecamphq.com/) mostrando tarefas pendentes
+* Separar contatos e emails em tabelas diferentes
 
 
 Twitter Bootstrap Copyright and license
