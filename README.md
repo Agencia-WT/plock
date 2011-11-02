@@ -50,6 +50,7 @@ var $default = array(
 ```
 
 #### Crie as tabelas clientes e users
+
 ``` sql
 CREATE  TABLE IF NOT EXISTS `clientes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
@@ -58,9 +59,6 @@ CREATE  TABLE IF NOT EXISTS `clientes` (
   `contato_2` VARCHAR(45) NULL DEFAULT NULL ,
   `site_antigo` VARCHAR(255) NOT NULL ,
   `site` VARCHAR(255) NOT NULL ,
-  `ftp` VARCHAR(45) NULL DEFAULT NULL ,
-  `usuario_ftp` VARCHAR(45) NULL DEFAULT NULL ,
-  `senha_ftp` VARCHAR(45) NULL DEFAULT NULL ,
   `telefone_1` VARCHAR(45) NULL DEFAULT NULL ,
   `telefone_2` VARCHAR(45) NULL DEFAULT NULL ,
   `telefone_3` VARCHAR(45) NULL DEFAULT NULL ,
@@ -70,23 +68,17 @@ CREATE  TABLE IF NOT EXISTS `clientes` (
   `senha_2` VARCHAR(45) NULL DEFAULT NULL ,
   `email_3` VARCHAR(45) NULL DEFAULT NULL ,
   `senha_3` VARCHAR(45) NULL DEFAULT NULL ,
-  `facebook_user` VARCHAR(45) NULL DEFAULT NULL ,
-  `facebook_senha` VARCHAR(45) NULL DEFAULT NULL ,
-  `twitter_user` VARCHAR(45) NULL DEFAULT NULL ,
-  `twitter_senha` VARCHAR(45) NULL DEFAULT NULL ,
-  `flickr_user` VARCHAR(45) NULL DEFAULT NULL ,
-  `flickr_senha` VARCHAR(45) NULL DEFAULT NULL ,
   `observacoes` TEXT NOT NULL ,
   `created` VARCHAR(45) NULL DEFAULT NULL ,
   `modified` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
-DEFAULT CHARACTER SET = latin1
+AUTO_INCREMENT = 112
+DEFAULT CHARACTER SET = latin1;
 ```
 
 ``` sql
-CREATE  TABLE IF NOT EXISTS `mydb`.`users` (
+CREATE  TABLE IF NOT EXISTS `users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(255) NOT NULL ,
   `username` VARCHAR(255) NOT NULL ,
@@ -97,8 +89,29 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`users` (
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
 AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = latin1
+DEFAULT CHARACTER SET = latin1;
 ```
+
+
+``` sql
+CREATE  TABLE IF NOT EXISTS `tasks` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `titulo` VARCHAR(45) NULL ,
+  `conteudo` TEXT NULL ,
+  `data` VARCHAR(45) NULL ,
+  `created` DATETIME NULL ,
+  `modified` DATETIME NULL ,
+  `clientes_id` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_tasks_clientes` (`clientes_id` ASC) ,
+  CONSTRAINT `fk_tasks_clientes`
+    FOREIGN KEY (`clientes_id` )
+    REFERENCES `plock`.`clientes` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+```
+
 
 #### TODO
 * Exportar clientes em CSV, XML e HTML
