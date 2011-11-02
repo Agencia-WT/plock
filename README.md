@@ -49,7 +49,7 @@ var $default = array(
 );
 ```
 
-#### Crie as tabelas clientes e users e ftps
+#### Crie as tabelas clientes, users e ftps
 
 ``` sql
 CREATE  TABLE IF NOT EXISTS `clientes` (
