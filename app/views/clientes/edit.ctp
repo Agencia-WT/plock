@@ -1,5 +1,4 @@
-<h2>Editar Cliente <?php echo $cliente['Cliente']['nome'] ?> 
-	<a href="/plock/clientes/view/<?php echo $cliente['Cliente']['id'] ?>"><button class="btn info small" style="float:right">Finalizar edição</button></a></h2>
+<h2>Editar Cliente <?php echo $cliente['Cliente']['nome'] ?> </h2>
 <hr>
 <?php echo $this->Session->flash(); ?>
 <form id="ClienteAddForm" method="post" action="" accept-charset="utf-8">
@@ -70,7 +69,26 @@
 				</fieldset>	<!-- /fieldset -->			
 			</div><!-- /span6 -->	
 			<div class="span8">
-
+					<div class="clearfix">
+						<fieldset>
+						<legend style="padding-left:0px">Servidor</legend>
+						<select name="data[Cliente][servers_id]">
+							<?php foreach($servers as $s){ ?>
+				
+								<?php
+								
+								if($s['Server']['id'] == $cliente['Cliente']['servers_id'] || $s['Server']['id'] == $server_select){
+									$selected = "selected";
+								}else{
+									$selected = "";
+								}
+								
+								?>
+								<option value="<?php echo $s['Server']['id'] ?>" <?php echo $selected ?>><?php echo $s['Server']['nome'] ?></option>
+							<?php } ?>
+						</select>
+						</fieldset>
+					</div><!-- /clearfix -->
 				<div class="clearfix">
 					<fieldset>
 					<legend style="padding-left:0px">Ftp's</legend>
@@ -90,9 +108,6 @@
 						 } ?>
 						</tbody>
 					</table>
-					<a href="/plock/ftps/add/<?php echo $cliente['Cliente']['id'] ?>">
-						<button class="btn small">Adicionar FTP</button>
-					</a>
 					</fieldset>
 				</div><!-- /clearfix -->
 				<hr>
@@ -109,7 +124,9 @@
 				</fieldset>
 				<hr>				
 				<div class="actions"> 
+					<input type="hidden" name="data[Cliente][id]" value="<?php echo $cliente['Cliente']['id'] ?>">
 				    <button class="btn primary">Salvar Cliente</button>
+					<input type="button" class="btn" onClick="history.back();" value="Cancelar">
 				</div><!-- /actions -->								
 			</div>	
 		</div>

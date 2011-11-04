@@ -81,5 +81,11 @@ body {
 	height:10px;
 }
 .actions-buttons > div{
-	display:none;
+	
+}
+.span-servers-bold span{
+	font-weight:bold;
+}
+.link-button{
+	text-decoration:none !important;
 }

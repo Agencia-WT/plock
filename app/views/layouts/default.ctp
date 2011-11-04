@@ -52,6 +52,11 @@
 			<li><?php echo $this->Html->link("Importar clientes","/clientes/import") ?></li>
  			<li><?php echo $this->Html->link("Exportar clientes","/clientes/export") ?></li>
           </ul>
+          <h5>Servidores</h5>
+          <ul class="list-sidebar">
+            <li><?php echo $this->Html->link("Adicionar Servidor","/servers/add") ?></li>
+            <li><?php echo $this->Html->link("Gerenciar Servidores","/servers") ?></li>
+          </ul>
           <h5>Ultimos clientes</h5>
           <ul class="list-sidebar">
 			<?php foreach($clientes as $c){ ?>

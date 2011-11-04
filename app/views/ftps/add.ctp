@@ -33,7 +33,7 @@
 				<div class="actions"> 
 					<input type="hidden" name="data[Ftp][clientes_id]" value="<?php echo $cliente['Cliente']['id'] ?>">
 				    <button class="btn primary">Salvar FTP</button>
-					<a href="/plock/clientes/view/<?php echo $cliente['Cliente']['id'] ?>"><input type="button" class="btn " value="Cancelar"></a>
+					<input type="button" class="btn " value="Cancelar" onClick="history.back();">
 				</div><!-- /actions -->
 			</div>
 		</div>

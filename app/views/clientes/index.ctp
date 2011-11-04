@@ -4,12 +4,12 @@
 <table class="zebra-striped" id="tableClientes">
 	<thead>
 		<tr>
-			<th class="yellow header headerSortDown">Nome</th>
+			<th class="green header headerSortDown">Nome</th>
 			<th class="green header">Host</th>
 			<th class="green header">Usuário</th>
 			<th class="green header">Senha FTP</ht>
-			<th>Email</th>
-			<th>#</th>
+			<th class="green header">Email</th>
+			<th class="green header">#</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,7 +20,7 @@
 				<td><?php echo @$d['Ftp'][0]['username'] ?></td>
 				<td><?php echo @$d['Ftp'][0]['password'] ?></td>
 				<td><?php echo $d['Cliente']['email_1'] ?></td>
-				<td><?php echo $this->Html->link("visualizar","/clientes/view/".$d['Cliente']['id']) ?>
+				<td><?php echo $this->Html->link("visualizar","/clientes/view/".$d['Cliente']['id']) ?></td>
 			</tr>
 		<?php } ?>
 	</tbody>

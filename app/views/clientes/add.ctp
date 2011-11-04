@@ -67,6 +67,17 @@
 			</div><!-- /span6 -->	
 			<div class="span8">
 				<div class="clearfix">
+				     <label for="xlInput">Servidor</label>
+				     <div class="input">
+				         <select name="data[Cliente][servers_id]">
+						 	<?php foreach($servers as $s){ ?>
+								<option value="<?php echo $s['Server']['id'] ?>"><?php echo $s['Server']['nome'] ?></option>
+							<?php } ?>
+						 </select>
+				      </div>
+				</div><!-- /clearfix -->
+				<hr>				
+				<div class="clearfix">
 				     <label for="xlInput">Domínio</label>
 				     <div class="input">
 				         <input class="xlarge" id="xlInput" name="data[Cliente][dominio]" placeholder="ex: www.teste.com.br" size="30" type="text" tabindex="10" />

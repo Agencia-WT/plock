@@ -4,7 +4,7 @@ class ClientesController extends AppController{
 	var $name = 'Clientes';
 	var $components = array('RequestHandler','Xml2php');
 	var $helpers = array('Html','Form','Ftpcheck');
-	var $uses = array("Cliente","Ftp");
+	var $uses = array("Cliente","Ftp","Server");
 	
 	var $paginate = array(
 		'limit' => 10,
@@ -31,6 +31,9 @@ class ClientesController extends AppController{
 	}
 	
 	function add(){
+		
+		$this->set("servers",$this->Server->find('all'));
+		
 		if(!empty($this->data)){
 			if($this->Cliente->save($this->data)){
 				
@@ -52,7 +55,33 @@ class ClientesController extends AppController{
 	
 	function edit($id = null){
 		
-		$this->set("cliente",$this->Cliente->findById($id));
+		$cliente = $this->Cliente->findById($id);
+		
+		$this->set("cliente",$cliente);
+		$this->set("servers",$this->Server->find('all'));
+		
+		
+		if($cliente['Ftp'][0]['dominio']){
+			$dom = $cliente['Ftp'][0]['dominio'];
+		}else{
+			$a = explode("ftp.",$cliente['Ftp'][0]['host']);
+			$dom = $a[1];
+		}
+		
+		$info = dns_get_record($dom, DNS_A);
+		
+		$ip = $info[0]['ip'];
+		
+		
+		
+		$server = $this->Server->findByIp($ip);
+		
+		if(count($server) > 0){
+			$server_select = $server['Server']['id'];
+			$this->set("server_select",$server_select);
+		}
+		
+		
 		
 		if(!empty($this->data)){
 			if($this->Cliente->save($this->data)){
@@ -82,9 +111,19 @@ class ClientesController extends AppController{
 		}
 		
 		$data = $this->paginate('Cliente',  array('Cliente.nome LIKE' => '%'.@$_SESSION['busca'].'%'));
-		
-		$this->set("data", $data);
 		$this->set("busca",@$_SESSION['busca']);
+		
+		# Caso tenha apenas 1 resultado ele já redireciona para a página do cliente
+		if(count($data) == 1){
+			
+			$url = "/clientes/view/".$data[0]['Cliente']['id'];
+			$this->redirect($url);
+			
+		}else{
+			
+			$this->set("data", $data);
+		}
+
 		
 		
 		

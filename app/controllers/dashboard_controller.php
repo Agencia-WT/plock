@@ -2,7 +2,7 @@
 	class DashboardController extends AppController {
 
 		  var $name = 'Dashboard';
-		  var $uses = array("User","Cliente");
+		  var $uses = array("User","Cliente","Server");
 		
 		  function beforeFilter(){
 			parent::beforeFilter();
@@ -15,6 +15,7 @@
 		  function index () {
 			   $this->set('user', $this->Auth->user());
 			   $this->set('nclientes', $this->Cliente->find('count'));
+			   $this->set('nservers', $this->Server->find('count'));
 		  }
 	}
 ?>

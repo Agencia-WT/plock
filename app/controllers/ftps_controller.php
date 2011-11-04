@@ -60,7 +60,7 @@ class FtpsController extends AppController
 				$this->Session->setFlash('FTP editado com sucesso!', 'flash_success');
 				$this->redirect($url);
 			}else{
-				$this->Session->setFlash('FTP editado com sucesso!', 'flash_fail');
+				$this->Session->setFlash('Falha ao editar!', 'flash_fail');
 				$this->redirect($url);
 			}
 			

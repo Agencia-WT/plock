@@ -2,7 +2,8 @@
 	<div style="border-bottom:1px solid #EEE;margin-bottom:10px">
 	<h2><?php echo $cliente['Cliente']['nome'] ?></h2>
 	</div>
-	<a href="/plock/clientes/edit/<?php echo $cliente['Cliente']['id'] ?>"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
+	<a href="/plock/clientes" class="link-button"><input type="button" class="btn small" value="Voltar" style="float:left;margin-right:5px"></a> &nbsp;
+	<a href="/plock/clientes/edit/<?php echo $cliente['Cliente']['id'] ?>" class="link-button"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
 	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:right">Deletar cliente</button>
 	<hr>
 	<div class="row">
@@ -47,6 +48,27 @@
 			
 		</div>
 		<div class="span8">
+			<h4>Servidor</h4>
+			
+			<?php if($cliente['Cliente']['servers_id'] != '1'){ ?>
+			<table class="zebra-striped" id="tableClientes">
+				<thead>
+					<tr>
+						<td width="340px">Servidor</td>
+						<td style="text-align:center">#</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><?php echo $cliente['Server']['nome'] ?></td>
+						<td style="text-align:center"><a href="/plock/servers/view/<?php echo $cliente['Server']['id'] ?>">Visualizar</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<?php }else{ ?>
+				<strong>Nenhum servidor anexado</strong> <br/><br/>
+			<?php } ?>
+			
 			<h4>FTP's</h4>
 			<?php foreach($cliente['Ftp'] as $f){ 
 			 	$status = $this->Ftpcheck->check($f['host'],$f['username'],$f['password']); 

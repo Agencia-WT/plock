@@ -13,7 +13,13 @@ class Cliente extends AppModel
 	        'className'     => 'Ftp',
 	        'foreignKey'    => 'clientes_id',
 	    )
-	);  	
+	); 
+	var $belongsTo = array(
+	    'Server' => array(
+	        'className'    => 'Server',
+	        'foreignKey'    => 'servers_id'
+	    )
+	);	
 
 	var $validate = array(
 	    'nome' => array(
