@@ -1,16 +1,5 @@
-# Plock Manager v0.3
+# Plock Manager v0.4
 [plock](https://github.com/hugodias/) é um gerenciador de clientes feito em cakephp para resolver o problema que muitas fábricas de software e agências de publicidade possuem, que é guardar e gerenciar de forma fácil e prática os dados de todos seus clientes.
-
-
-
-Demo ( Versão antiga 0.1)
------
-[http://api.pitchbox.com.br](http://api.pitchbox.com.br)
-
-#### Usuário: visitante
-
-#### senha: 123
-
 
 
 Ele tem:
@@ -21,6 +10,8 @@ Ele tem:
 * Front-end construido utilizando [CoffeeScript](http://jashkenas.github.com/coffee-script/)
 * Importação de arquivos XML do [Filezilla](http://filezilla-project.org/)
 * Validação automática do ftp de cada cliente informando se está acessível ou não
+* Cadastro de servidores relacionado aos clientes
+* Verificação automática de relação entre servidor -> cliente
 * Controle de usuários
 
 #### Para utilizar você precisa ter:
@@ -43,13 +34,13 @@ var $default = array(
 	'persistent' => false,
 	'host' => 'localhost',
 	'login' => 'root',
-	'password' => 'root',
+	'password' => '',
 	'database' => 'plock',
 	'prefix' => '',
 );
 ```
 
-#### Crie as tabelas clientes, users e ftps
+#### Crie as tabelas clientes, users, ftps, servers, tasks
 
 ``` sql
 CREATE  TABLE IF NOT EXISTS `clientes` (
@@ -71,10 +62,17 @@ CREATE  TABLE IF NOT EXISTS `clientes` (
   `observacoes` TEXT NOT NULL ,
   `created` VARCHAR(45) NULL DEFAULT NULL ,
   `modified` VARCHAR(45) NULL DEFAULT NULL ,
-  PRIMARY KEY (`id`) )
+  `servers_id` INT(11) NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_clientes_servers1` (`servers_id` ASC) ,
+  CONSTRAINT `fk_clientes_servers1`
+    FOREIGN KEY (`servers_id` )
+    REFERENCES `plock`.`servers` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 112
-DEFAULT CHARACTER SET = latin1;
+AUTO_INCREMENT = 257
+DEFAULT CHARACTER SET = latin1
 ```
 
 ``` sql
@@ -88,28 +86,66 @@ CREATE  TABLE IF NOT EXISTS `users` (
   `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = latin1;
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = latin1
 ```
 
 
 ``` sql
 CREATE  TABLE IF NOT EXISTS `tasks` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `titulo` VARCHAR(45) NULL ,
-  `conteudo` TEXT NULL ,
-  `data` VARCHAR(45) NULL ,
-  `created` DATETIME NULL ,
-  `modified` DATETIME NULL ,
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `titulo` VARCHAR(45) NULL DEFAULT NULL ,
+  `conteudo` TEXT NULL DEFAULT NULL ,
+  `data` VARCHAR(45) NULL DEFAULT NULL ,
+  `created` DATETIME NULL DEFAULT NULL ,
+  `modified` DATETIME NULL DEFAULT NULL ,
   `clientes_id` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_tasks_clientes` (`clientes_id` ASC) ,
   CONSTRAINT `fk_tasks_clientes`
     FOREIGN KEY (`clientes_id` )
-    REFERENCES `clientes` (`id` )
+    REFERENCES `plock`.`clientes` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1
+```
+
+
+``` sql
+CREATE  TABLE IF NOT EXISTS `ftps` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `dominio` VARCHAR(255) NULL DEFAULT NULL ,
+  `host` VARCHAR(255) NULL DEFAULT NULL ,
+  `username` VARCHAR(255) NULL DEFAULT NULL ,
+  `password` VARCHAR(255) NULL DEFAULT NULL ,
+  `created` DATETIME NULL DEFAULT NULL ,
+  `modified` DATETIME NULL DEFAULT NULL ,
+  `clientes_id` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_ftps_clientes1` (`clientes_id` ASC) ,
+  CONSTRAINT `ftps_ibfk_1`
+    FOREIGN KEY (`clientes_id` )
+    REFERENCES `plock`.`clientes` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 144
+DEFAULT CHARACTER SET = latin1
+```
+
+``` sql
+CREATE  TABLE IF NOT EXISTS `servers` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(255) NULL DEFAULT NULL ,
+  `url` VARCHAR(255) NULL DEFAULT NULL ,
+  `usuario` VARCHAR(255) NULL DEFAULT NULL ,
+  `senha` VARCHAR(255) NULL DEFAULT NULL ,
+  `ip` VARCHAR(255) NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+AUTO_INCREMENT = 8
+DEFAULT CHARACTER SET = latin1
 ```
 
 
