@@ -8,33 +8,33 @@
 				<fieldset>
 					<legend>Dados Pessoais</legend>
 					<div class="clearfix">
-					     <label for="xlInput">Nome</label>
+					     <label for="cliente_nome">Nome</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][nome]" value="<?php echo $cliente['Cliente']['nome'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_nome" name="data[Cliente][nome]" value="<?php echo $cliente['Cliente']['nome'] ?>" size="30" type="text" tabindex="1" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Contato 1</label>
+					     <label for="cliente_contato1">Contato 1</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][contato_1]" value="<?php echo $cliente['Cliente']['contato_1'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_contato1" name="data[Cliente][contato_1]" value="<?php echo $cliente['Cliente']['contato_1'] ?>" size="30" type="text" tabindex="2" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Contato 2</label>
+					     <label for="cliente_contato2">Contato 2</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][contato_2]" value="<?php echo $cliente['Cliente']['contato_2'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_contato2" name="data[Cliente][contato_2]" value="<?php echo $cliente['Cliente']['contato_2'] ?>" size="30" type="text" tabindex="3" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Telefone 1</label>
+					     <label for="cliente_telefone1">Telefone 1</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_1]" value="<?php echo $cliente['Cliente']['telefone_1'] ?>" size="30" type="text"/>
+					         <input class="xlarge" id="cliente_telefone1" name="data[Cliente][telefone_1]" value="<?php echo $cliente['Cliente']['telefone_1'] ?>" size="30" type="text" tabindex="4" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Telefone 2</label>
+					     <label for="cliente_telefone2">Telefone 2</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_2]" value="<?php echo $cliente['Cliente']['telefone_2'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_telefone2" name="data[Cliente][telefone_2]" value="<?php echo $cliente['Cliente']['telefone_2'] ?>" size="30" type="text" tabindex="5" />
 					      </div>
 					</div><!-- /clearfix -->				
 				</fieldset>
@@ -43,67 +43,47 @@
 					<legend>Email</legend>
 					<br/>
 					<div class="clearfix">
-					     <label for="xlInput">Email 1</label>
+					     <label for="cliente_email1">Email 1</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][email_1]" value="<?php echo $cliente['Cliente']['email_1'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_email1" name="data[Cliente][email_1]" value="<?php echo $cliente['Cliente']['email_1'] ?>" size="30" type="text" tabindex="6" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Senha 1</label>
+					     <label for="cliente_senha1">Senha 1</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][senha_1]" value="<?php echo $cliente['Cliente']['senha_1'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_senha1" name="data[Cliente][senha_1]" value="<?php echo $cliente['Cliente']['senha_1'] ?>" size="30" type="text" tabindex="7" />
 					      </div>
 					</div><!-- /clearfix -->				
 					<div class="clearfix">
-					     <label for="xlInput">Email 2</label>
+					     <label for="cliente_email2">Email 2</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][email_2]" value="<?php echo $cliente['Cliente']['email_2'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_email2" name="data[Cliente][email_2]" value="<?php echo $cliente['Cliente']['email_2'] ?>" size="30" type="text" tabindex="8" />
 					      </div>
 					</div><!-- /clearfix -->
 					<div class="clearfix">
-					     <label for="xlInput">Senha 2</label>
+					     <label for="cliente_senha2">Senha 2</label>
 					     <div class="input">
-					         <input class="xlarge" id="xlInput" name="data[Cliente][senha_2]" value="<?php echo $cliente['Cliente']['senha_2'] ?>" size="30" type="text" />
+					         <input class="xlarge" id="cliente_senha2" name="data[Cliente][senha_2]" value="<?php echo $cliente['Cliente']['senha_2'] ?>" size="30" type="text" tabindex="9" />
 					      </div>
 					</div><!-- /clearfix -->
 				</fieldset>	<!-- /fieldset -->			
 			</div><!-- /span6 -->	
 			<div class="span8">
-					<div class="clearfix">
-						<fieldset>
-						<legend style="padding-left:0px">Servidor</legend>
-						<select name="data[Cliente][servers_id]">
-							<?php foreach($servers as $s){ ?>
-				
-								<?php
-								
-								if($s['Server']['id'] == $cliente['Cliente']['servers_id'] || $s['Server']['id'] == $server_select){
-									$selected = "selected";
-								}else{
-									$selected = "";
-								}
-								
-								?>
-								<option value="<?php echo $s['Server']['id'] ?>" <?php echo $selected ?>><?php echo $s['Server']['nome'] ?></option>
-							<?php } ?>
-						</select>
-						</fieldset>
-					</div><!-- /clearfix -->
 				<div class="clearfix">
 					<fieldset>
-					<legend style="padding-left:0px">Ftp's</legend>
+					<legend style="padding-left:0px">Domínios</legend>
 					<table class="zebra-striped" id="tableClientes">
 						<thead>
 							<tr>
-								<td>Host</td>
+								<td>Url</td>
 								<td>#</td>
 							</tr>
 						</thead>
 						<tbody>
-				        <?php foreach($cliente['Ftp'] as $f){ 
+				        <?php foreach ( $cliente['Dominio'] as $d ) { 
 							echo '<tr>';
-							echo '<td>'.$f['host']."</td>";
-							echo '<td>'.$this->Html->link("editar", "/ftps/edit/".$f['id']).'</td>';
+							echo '<td>'.$d['url']."</td>";
+							echo '<td>'.$this->Html->link("editar", "/dominios/edit/".$d['id']).'</td>';
 							echo '</tr>';
 						 } ?>
 						</tbody>
@@ -113,9 +93,9 @@
 				<hr>
 				<fieldset>
 					<div class="clearfix">
-					     <label for="xlInput">Observações</label>
+					     <label for="cliente_observacoes">Observações</label>
 					     <div class="input">
-					        <textarea class="span5" id="textarea2" rows="10" name="data[Cliente][observacoes]"><?php echo $cliente['Cliente']['observacoes'] ?></textarea> 
+					        <textarea class="span5" id="cliente_observacoes" rows="10" name="data[Cliente][observacoes]" tabindex="10" ><?php echo $cliente['Cliente']['observacoes'] ?></textarea> 
 							<span class="help-block">
 								Digite aqui informações complementares como endereço, sites de referência para o projeto, etc ..
 							</span>
@@ -125,8 +105,8 @@
 				<hr>				
 				<div class="actions"> 
 					<input type="hidden" name="data[Cliente][id]" value="<?php echo $cliente['Cliente']['id'] ?>">
-				    <button class="btn primary">Salvar Cliente</button>
-					<input type="button" class="btn" onClick="history.back();" value="Cancelar">
+				    <button class="btn primary" tabindex="11">Salvar Cliente</button>
+					<input type="button" class="btn" onClick="history.back();" value="Cancelar" tabindex="12">
 				</div><!-- /actions -->								
 			</div>	
 		</div>

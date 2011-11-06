@@ -1,125 +1,142 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+-- phpMyAdmin SQL Dump
+-- version 3.4.5deb1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: 06/11/2011 às 21h21min
+-- Versão do Servidor: 5.1.58
+-- Versão do PHP: 5.3.6-13ubuntu3.2
 
-CREATE SCHEMA IF NOT EXISTS `plock` DEFAULT CHARACTER SET latin1 ;
-USE `plock` ;
-
--- -----------------------------------------------------
--- Table `plock`.`servers`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `plock`.`servers` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(255) NULL DEFAULT NULL ,
-  `url` VARCHAR(255) NULL DEFAULT NULL ,
-  `usuario` VARCHAR(255) NULL DEFAULT NULL ,
-  `senha` VARCHAR(255) NULL DEFAULT NULL ,
-  `ip` VARCHAR(255) NULL DEFAULT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = latin1;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `plock`.`clientes`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `plock`.`clientes` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(45) NULL DEFAULT NULL ,
-  `contato_1` VARCHAR(45) NULL DEFAULT NULL ,
-  `contato_2` VARCHAR(45) NULL DEFAULT NULL ,
-  `site_antigo` VARCHAR(255) NOT NULL ,
-  `site` VARCHAR(255) NOT NULL ,
-  `telefone_1` VARCHAR(45) NULL DEFAULT NULL ,
-  `telefone_2` VARCHAR(45) NULL DEFAULT NULL ,
-  `telefone_3` VARCHAR(45) NULL DEFAULT NULL ,
-  `email_1` VARCHAR(45) NULL DEFAULT NULL ,
-  `senha_1` VARCHAR(45) NULL DEFAULT NULL ,
-  `email_2` VARCHAR(45) NULL DEFAULT NULL ,
-  `senha_2` VARCHAR(45) NULL DEFAULT NULL ,
-  `email_3` VARCHAR(45) NULL DEFAULT NULL ,
-  `senha_3` VARCHAR(45) NULL DEFAULT NULL ,
-  `observacoes` TEXT NOT NULL ,
-  `created` VARCHAR(45) NULL DEFAULT NULL ,
-  `modified` VARCHAR(45) NULL DEFAULT NULL ,
-  `servers_id` INT(11) NULL DEFAULT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_clientes_servers1` (`servers_id` ASC) ,
-  CONSTRAINT `fk_clientes_servers1`
-    FOREIGN KEY (`servers_id` )
-    REFERENCES `plock`.`servers` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 257
-DEFAULT CHARACTER SET = latin1;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
+--
+-- Banco de Dados: `plock`
+--
 
--- -----------------------------------------------------
--- Table `plock`.`ftps`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `plock`.`ftps` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `dominio` VARCHAR(255) NULL DEFAULT NULL ,
-  `host` VARCHAR(255) NULL DEFAULT NULL ,
-  `username` VARCHAR(255) NULL DEFAULT NULL ,
-  `password` VARCHAR(255) NULL DEFAULT NULL ,
-  `created` DATETIME NULL DEFAULT NULL ,
-  `modified` DATETIME NULL DEFAULT NULL ,
-  `clientes_id` INT(11) NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_ftps_clientes1` (`clientes_id` ASC) ,
-  CONSTRAINT `ftps_ibfk_1`
-    FOREIGN KEY (`clientes_id` )
-    REFERENCES `plock`.`clientes` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-AUTO_INCREMENT = 144
-DEFAULT CHARACTER SET = latin1;
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `clientes`
+--
 
--- -----------------------------------------------------
--- Table `plock`.`tasks`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `plock`.`tasks` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `titulo` VARCHAR(45) NULL DEFAULT NULL ,
-  `conteudo` TEXT NULL DEFAULT NULL ,
-  `data` VARCHAR(45) NULL DEFAULT NULL ,
-  `created` DATETIME NULL DEFAULT NULL ,
-  `modified` DATETIME NULL DEFAULT NULL ,
-  `clientes_id` INT(11) NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_tasks_clientes` (`clientes_id` ASC) ,
-  CONSTRAINT `fk_tasks_clientes`
-    FOREIGN KEY (`clientes_id` )
-    REFERENCES `plock`.`clientes` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `contato_1` varchar(45) DEFAULT NULL,
+  `contato_2` varchar(45) DEFAULT NULL,
+  `site_antigo` varchar(255) NOT NULL,
+  `site` varchar(255) NOT NULL,
+  `telefone_1` varchar(45) DEFAULT NULL,
+  `telefone_2` varchar(45) DEFAULT NULL,
+  `telefone_3` varchar(45) DEFAULT NULL,
+  `email_1` varchar(45) DEFAULT NULL,
+  `senha_1` varchar(45) DEFAULT NULL,
+  `email_2` varchar(45) DEFAULT NULL,
+  `senha_2` varchar(45) DEFAULT NULL,
+  `email_3` varchar(45) DEFAULT NULL,
+  `senha_3` varchar(45) DEFAULT NULL,
+  `observacoes` text NOT NULL,
+  `created` varchar(45) DEFAULT NULL,
+  `modified` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `plock`.`users`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `plock`.`users` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(255) NOT NULL ,
-  `username` VARCHAR(255) NOT NULL ,
-  `password` VARCHAR(40) NOT NULL ,
-  `email` VARCHAR(255) NOT NULL ,
-  `created` DATETIME NOT NULL ,
-  `modified` DATETIME NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 5
-DEFAULT CHARACTER SET = latin1;
+--
+-- Estrutura da tabela `dominios`
+--
 
+CREATE TABLE IF NOT EXISTS `dominios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) DEFAULT NULL,
+  `ftp_host` varchar(255) DEFAULT NULL,
+  `ftp_username` varchar(255) DEFAULT NULL,
+  `ftp_password` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `clientes_id` int(11) NOT NULL,
+  `servers_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_ftps_clientes1` (`clientes_id`),
+  KEY `servers_id` (`servers_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
 
+-- --------------------------------------------------------
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Estrutura da tabela `servers`
+--
+
+CREATE TABLE IF NOT EXISTS `servers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `usuario` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `ip` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tasks`
+--
+
+CREATE TABLE IF NOT EXISTS `tasks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(45) DEFAULT NULL,
+  `conteudo` text,
+  `data` varchar(45) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `clientes_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tasks_clientes` (`clientes_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Restrições para as tabelas dumpadas
+--
+
+--
+-- Restrições para a tabela `dominios`
+--
+ALTER TABLE `dominios`
+  ADD CONSTRAINT `dominios_ibfk_1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dominios_ibfk_2` FOREIGN KEY (`servers_id`) REFERENCES `servers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `fk_tasks_clientes` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

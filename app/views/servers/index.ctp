@@ -14,16 +14,14 @@
 	</thead>
 	<tbody>
 		<?php foreach($servers as $s){ ?>
-			<?php if($s['Server']['id'] != '1'){ ?>
 			<tr>
 				<td><?php echo $s['Server']['nome'] ?></td>
-				<td><?php echo @$s['Server']['url'] ?></td>
+				<td><a href="<?php echo $s['Server']['url'] ?>" target="_blank"><?php echo @$s['Server']['url'] ?></a></td>
 				<td><?php echo @$s['Server']['usuario'] ?></td>
 				<td><?php echo @$s['Server']['senha'] ?></td>
 				<td><?php echo $s['Server']['ip'] ?></td>
 				<td><?php echo $this->Html->link("Visualizar","/servers/view/".$s['Server']['id']) ?></td>
 			</tr>
-			<?php } ?>
 		<?php } ?>
 	</tbody>
 </table>
@@ -38,9 +36,3 @@
 </span>
 </div>
 <div class="clear"></div>
-
-
-
-
-
-
