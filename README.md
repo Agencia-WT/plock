@@ -42,12 +42,6 @@ var $default = array(
 ```
 
 
-
-#### Crie as tabelas clientes, users, ftps, servers, tasks
-
-
-
-
 #### TODO
 * Exportar clientes em CSV, XML e HTML
 * Integrar cada cliente com suas respectivas tarefas no [BASECAMP](http://basecamphq.com/) mostrando tarefas pendentes
