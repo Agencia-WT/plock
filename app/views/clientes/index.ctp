@@ -5,9 +5,9 @@
 	<thead>
 		<tr>
 			<th class="green header headerSortDown">Nome</th>
-			<th class="green header">Host</th>
-			<th class="green header">Usuário</th>
-			<th class="green header">Senha FTP</ht>
+			<th class="green header">FTP Host</th>
+			<th class="green header">FTP Usuário</th>
+			<th class="green header">FTP Senha</ht>
 			<th class="green header">Email</th>
 			<th class="green header">#</th>
 		</tr>
@@ -16,9 +16,9 @@
 		<?php foreach($data as $d){ ?>
 			<tr>
 				<td><?php echo $d['Cliente']['nome'] ?></td>
-				<td><?php echo @$d['Ftp'][0]['host'] ?></td>
-				<td><?php echo @$d['Ftp'][0]['username'] ?></td>
-				<td><?php echo @$d['Ftp'][0]['password'] ?></td>
+				<td><?php echo @$d['Dominio'][0]['ftp_host'] ?></td>
+				<td><?php echo @$d['Dominio'][0]['ftp_username'] ?></td>
+				<td><?php echo @$d['Dominio'][0]['ftp_password'] ?></td>
 				<td><?php echo $d['Cliente']['email_1'] ?></td>
 				<td><?php echo $this->Html->link("visualizar","/clientes/view/".$d['Cliente']['id']) ?></td>
 			</tr>

@@ -20,9 +20,9 @@
 			<tr>
 				<td><?php echo $d['Cliente']['nome'] ?></td>
 				<td><?php echo $d['Cliente']['telefone_1'] ?></td>
-				<td><?php echo @$d['Ftp'][0]['host'] ?></td>
-				<td><?php echo @$d['Ftp'][0]['username'] ?>
-				<td><?php echo @$d['Ftp'][0]['password'] ?></td>
+				<td><?php echo @$d['Dominio'][0]['ftp_host'] ?></td>
+				<td><?php echo @$d['Dominio'][0]['ftp_username'] ?>
+				<td><?php echo @$d['Dominio'][0]['ftp_password'] ?></td>
 				<td><?php echo $d['Cliente']['email_1'] ?></td>
 				<td><?php echo $this->Html->link("visualizar","/clientes/view/".$d['Cliente']['id']) ?>
 			</tr>

@@ -48,51 +48,43 @@
 			
 		</div>
 		<div class="span8">
-			<h4>Servidor</h4>
-			
-			<?php if($cliente['Cliente']['servers_id'] != '1'){ ?>
-			<table class="zebra-striped" id="tableClientes">
-				<thead>
-					<tr>
-						<td width="340px">Servidor</td>
-						<td style="text-align:center">#</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><?php echo $cliente['Server']['nome'] ?></td>
-						<td style="text-align:center"><a href="/plock/servers/view/<?php echo $cliente['Server']['id'] ?>">Visualizar</a></td>
-					</tr>
-				</tbody>
-			</table>
-			<?php }else{ ?>
-				<strong>Nenhum servidor anexado</strong> <br/><br/>
-			<?php } ?>
-			
-			<h4>FTP's</h4>
-			<?php foreach($cliente['Ftp'] as $f){ 
-			 	$status = $this->Ftpcheck->check($f['host'],$f['username'],$f['password']); 
-			?>
+			<h4>Domínios</h4>
+			<?php 
+			foreach ( $cliente['Dominio'] as $d ) 
+			{ 
+			 	$status = $this->Ftpcheck->check($d['ftp_host'], $d['ftp_username'], $d['ftp_password']); 
+				?>
 				
 			<div class="well box-ftps">
-				<div style="float:left;width:80px">
-					<span>Domínio:</span><br/>
-					<span>Host:</span><br/>
-					<span>Usuário: </span><br/>
-					<span>Senha FTP:</span>
-					<span>Status: </span>
+				<div style="float:left;width:90px">
+					<span>Url:</span><br/>
+					<span>Servidor:</span><br/>
+					<span>FTP Host:</span><br/>
+					<span>FTP Usuário: </span><br/>
+					<span>FTP Senha:</span>
+					<span>FTP Status: </span>
 					<span>&nbsp;</span>
 				</div>
 				<div style="float:left">
-					<?php echo $f['dominio'] ?><br/>
-					<?php echo $f['host'] ?><br/>
-					<?php echo $f['username'] ?><br/>
-					<?php echo $f['password'] ?><br/>
+					<?php echo $d['url'] ?><br/>
+					
+					<?php 
+					if ( !empty($d['servers_id']) )
+					{ 
+						echo '<a href="/plock/servers/view/'.$d['servers_id'].'">Visualizar Servidor</a><br />';
+					}
+					else
+					{ 
+						echo '<strong>Nenhum servidor anexado</strong> <br/>';
+					} ?>
+					<?php echo $d['ftp_host'] ?><br/>
+					<?php echo $d['ftp_username'] ?><br/>
+					<?php echo $d['ftp_password'] ?><br/>
 					<?php echo $status ?><br/><br/>
 					<div class="actions-buttons">
 						<div>
-						<?php echo $this->Html->link("Editar","/ftps/edit/".$f['id'], array('class' => 'link-editar')) ?> | 
-						<?php echo $this->Html->link("Remover","/ftps/delete/".$f['id'], array('class' => 'link-remover')) ?>
+						<?php echo $this->Html->link('Editar',  '/dominios/edit/'.$d['id'],   array('class' => 'link-editar')) ?> | 
+						<?php echo $this->Html->link('Remover', '/dominios/delete/'.$d['id'], array('class' => 'link-remover')) ?>
 						</div>
 					</div>
 				</div>
@@ -103,8 +95,8 @@
 			
 			<?php } ?>
 			<div class="clear"></div>
-			<a href="/plock/ftps/add/<?php echo $cliente['Cliente']['id'] ?>">
-				<button class="btn small">Adicionar FTP</button>
+			<a href="/plock/dominios/add/<?php echo $cliente['Cliente']['id'] ?>">
+				<button class="btn small">Adicionar Domínio</button>
 			</a>
 		</div>
 	</div>

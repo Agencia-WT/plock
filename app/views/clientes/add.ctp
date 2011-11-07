@@ -8,104 +8,104 @@
 			<div class="span8">
 				
 				<div class="clearfix">
-				     <label for="xlInput">Nome</label>
+				     <label for="cliente_nome">Nome</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][nome]" size="30" type="text" tabindex="1" />
+				         <input class="xlarge" id="cliente_nome" name="data[Cliente][nome]" size="30" type="text" tabindex="1" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Contato 1</label>
+				     <label for="cliente_contato1">Contato 1</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][contato_1]" size="30" type="text" tabindex="2" />
+				         <input class="xlarge" id="cliente_contato1" name="data[Cliente][contato_1]" size="30" type="text" tabindex="2" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Contato 2</label>
+				     <label for="cliente_contato2">Contato 2</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][contato_2]" size="30" type="text" tabindex="3" />
+				         <input class="xlarge" id="cliente_contato2" name="data[Cliente][contato_2]" size="30" type="text" tabindex="3" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Telefone 1</label>
+				     <label for="cliente_telefone1">Telefone 1</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_1]" size="30" type="text" tabindex="4" />
+				         <input class="xlarge" id="cliente_telefone1" name="data[Cliente][telefone_1]" size="30" type="text" tabindex="4" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Telefone 2</label>
+				     <label for="cliente_telefone2">Telefone 2</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][telefone_2]" size="30" type="text" tabindex="5" />
+				         <input class="xlarge" id="cliente_telefone2" name="data[Cliente][telefone_2]" size="30" type="text" tabindex="5" />
 				      </div>
 				</div><!-- /clearfix -->				
 				<hr>
 				<legend>Email</legend>
 				<br/>
 				<div class="clearfix">
-				     <label for="xlInput">Email 1</label>
+				     <label for="cliente_email1">Email 1</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][email_1]" size="30" type="text" tabindex="6" />
+				         <input class="xlarge" id="cliente_email1" name="data[Cliente][email_1]" size="30" type="text" tabindex="6" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Senha 1</label>
+				     <label for="cliente_senha1">Senha 1</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_1]" size="30" type="text" tabindex="7" />
+				         <input class="xlarge" id="cliente_senha1" name="data[Cliente][senha_1]" size="30" type="text" tabindex="7" />
 				      </div>
 				</div><!-- /clearfix -->				
 				<div class="clearfix">
-				     <label for="xlInput">Email 2</label>
+				     <label for="cliente_email2">Email 2</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][email_2]" size="30" type="text" tabindex="8" />
+				         <input class="xlarge" id="cliente_email2" name="data[Cliente][email_2]" size="30" type="text" tabindex="8" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Senha 2</label>
+				     <label for="cliente_senha2">Senha 2</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_2]" size="30" type="text" tabindex="9" />
+				         <input class="xlarge" id="cliente_senha2" name="data[Cliente][senha_2]" size="30" type="text" tabindex="9" />
 				      </div>
 				</div><!-- /clearfix -->				
 			</div><!-- /span6 -->	
 			<div class="span8">
 				<div class="clearfix">
-				     <label for="xlInput">Servidor</label>
+				     <label for="dominio">Domínio</label>
 				     <div class="input">
-				         <select name="data[Cliente][servers_id]">
+				         <input class="xlarge" id="dominio" name="data[Cliente][url]" placeholder="ex: www.teste.com.br" size="30" type="text" tabindex="10" />
+				      </div>
+				</div><!-- /clearfix -->
+				<div class="clearfix">
+				     <label for="servidor">Servidor</label>
+				     <div class="input">
+				         <select id="servidor" name="data[Cliente][servers_id]" tabindex="11">
+				         	<option value="">---</option>
 						 	<?php foreach($servers as $s){ ?>
 								<option value="<?php echo $s['Server']['id'] ?>"><?php echo $s['Server']['nome'] ?></option>
 							<?php } ?>
 						 </select>
 				      </div>
 				</div><!-- /clearfix -->
-				<hr>				
 				<div class="clearfix">
-				     <label for="xlInput">Domínio</label>
+				     <label for="ftp_host">FTP Host</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][dominio]" placeholder="ex: www.teste.com.br" size="30" type="text" tabindex="10" />
+				         <input class="xlarge" id="ftp_host" name="data[Cliente][ftp_host]" placeholder="ex: ftp.teste.com.br" size="30" type="text" tabindex="12" />
 				      </div>
 				</div><!-- /clearfix -->
 				<div class="clearfix">
-				     <label for="xlInput">Host</label>
+				     <label for="ftp_usuario">FTP Usuário</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][ftp]" placeholder="ex: ftp.teste.com.br" size="30" type="text" tabindex="10" />
-				      </div>
-				</div><!-- /clearfix -->
-				<div class="clearfix">
-				     <label for="xlInput">Usuário do FTP</label>
-				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][usuario_ftp]" placeholder="ex: teste" size="30" type="text" tabindex="11" />
+				         <input class="xlarge" id="ftp_usuario" name="data[Cliente][ftp_username]" placeholder="ex: teste" size="30" type="text" tabindex="13" />
 				      </div>
 				</div><!-- /clearfix -->				
 				<div class="clearfix">
-				     <label for="xlInput">Senha do FTP</label>
+				     <label for="ftp_senha">FTP Senha</label>
 				     <div class="input">
-				         <input class="xlarge" id="xlInput" name="data[Cliente][senha_ftp]" placeholder="ex: 8ks7Jnsj2" size="30" type="text" tabindex="12" />
+				         <input class="xlarge" id="ftp_senha" name="data[Cliente][ftp_password]" placeholder="ex: 8ks7Jnsj2" size="30" type="text" tabindex="14" />
 				      </div>
 				</div><!-- /clearfix -->
 				<hr>
 				<div class="clearfix">
-				     <label for="xlInput">Observações</label>
+				     <label for="cliente_observacoes">Observações</label>
 				     <div class="input">
-				        <textarea class="span5" id="textarea2" rows="10" name="data[Cliente][observacoes]"></textarea> 
+				        <textarea class="span5" id="cliente_observacoes" rows="10" name="data[Cliente][observacoes]" tabindex="15"></textarea> 
 						<span class="help-block">
 							Digite aqui informações complementares como endereço, sites de referência para o projeto, etc ..
 						</span>
@@ -113,7 +113,7 @@
 				</div><!-- /clearfix -->
 				<hr>				
 				<div class="actions"> 
-				    <button class="btn primary">Salvar Cliente</button>
+				    <button class="btn primary" tabindex="15">Salvar Cliente</button>
 				</div><!-- /actions -->								
 			</div>	
 		</div>
