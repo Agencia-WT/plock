@@ -7,37 +7,44 @@
 
 class Cliente extends AppModel
 {
-	var $name = 'Cliente';
-	var $hasMany = array(
-	    'Ftp' => array(
-	        'className'     => 'Ftp',
-	        'foreignKey'    => 'clientes_id',
+	var $name 	 = 'Cliente';
+	var $hasMany = array
+	(
+	    'Dominio' => array
+	    (
+	        'className'  => 'Dominio',
+	        'foreignKey' => 'clientes_id'
 	    )
 	); 
-	var $belongsTo = array(
+	
+	/*var $belongsTo = array
+	(
 	    'Server' => array(
 	        'className'    => 'Server',
 	        'foreignKey'    => 'servers_id'
 	    )
-	);	
+	);*/	
 
-	var $validate = array(
-	    'nome' => array(
+	var $validate = array
+	(
+	    'nome' => array
+	    (
 	        'rule' => array('minLength', 2),
 	        'message' => ''
 	    )
 	);
 		
-	function ultimosClientes(){
 		
-		$clientes = $this->find('all', array(
+	function ultimosClientes()
+	{
+		$clientes = $this->find('all', array
+		(
 			'order' => array('Cliente.modified DESC'),
-			'limit' => 5));
+			'limit' => 5)
+		);
 			
 		return $clientes;
-		
 	}
-
-
 }
+
 ### ?>

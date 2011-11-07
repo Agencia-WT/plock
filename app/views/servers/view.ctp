@@ -29,15 +29,15 @@
 
 
 <div id="modal-delete-server" class="modal hide fade">
-            <div class="modal-header">
-              <a href="#" class="close">&times;</a>
-              <h3>Calma ...</h3>
-            </div>
-            <div class="modal-body">
-              <p>Deseja realmente apagar o server <span><?php echo $server['Server']['nome'] ?></span> ?</p>
-            </div>
-            <div class="modal-footer">
-              <a href="/plock/servers/delete/<?php echo $server['Server']['id'] ?>" class="btn primary" >Sim</a>
-              <a href="#" class="btn secondary closemodal">Não!</a>
-            </div>
-          </div>
+	<div class="modal-header">
+  		<a href="#" class="close">&times;</a>
+  		<h3>Calma ...</h3>
+	</div>
+	<div class="modal-body">
+  		<p>Deseja realmente apagar o server <span><?php echo $server['Server']['nome'] ?></span> ?</p>
+	</div>
+	<div class="modal-footer">
+  		<a href="/plock/servers/delete/<?php echo $server['Server']['id'] ?>" class="btn primary" >Sim</a>
+  		<a href="#" class="btn secondary closemodal">Não!</a>
+	</div>
+</div>
