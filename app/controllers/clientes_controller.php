@@ -3,7 +3,7 @@
 class ClientesController extends AppController
 {
 	var $name 		= 'Clientes';
-	var $components = array('RequestHandler', 'Xml2php');
+	var $components = array('RequestHandler', 'Xml2php','Filezilaxml');
 	var $helpers 	= array('Html', 'Form', 'Ftpcheck');
 	var $uses 		= array('Cliente', 'Dominio', 'Server');
 	
@@ -188,6 +188,13 @@ class ClientesController extends AppController
 					$json = json_encode($clientes);
 					echo '<h3>Resultado</h3>';
 					pr($json);
+				break;
+				case 'XML':
+					$data = $this->Filezilaxml->parse($clientes);
+					echo $data;
+					//pr($clientes);
+				break;
+				case 'HTML':
 				break;
 			}
 		}

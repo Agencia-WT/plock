@@ -14,7 +14,12 @@ class Cliente extends AppModel
 	    (
 	        'className'  => 'Dominio',
 	        'foreignKey' => 'clientes_id'
-	    )
+	    ),
+		'Task' => array
+		(
+			'className' => 'Task',
+			'foreignKey' => 'clientes_id'
+		) 
 	); 
 	
 	/*var $belongsTo = array

@@ -3,7 +3,7 @@
 <strong>Escolha o formato:</strong><br/>
 <div class="well" style="margin-top:8px">
 	<button class="btn primary exportBtn" alt="JSON">JSON</button>&nbsp;
-	<button class="btn" alt="XML">XML</button>&nbsp;
+	<button class="btn exportBtn" alt="XML">XML</button>&nbsp;
 	<button class="btn info">CSV</button>&nbsp;
 	<button class="btn success">HTML</button>&nbsp;
 </div>

@@ -10,7 +10,7 @@
         case "JSON":
           return this.requestAjax(this.format);
         case "XML":
-          return this.showForm();
+          return this.requestAjax(this.format);
       }
     };
     Export.prototype.requestAjax = function(format) {

@@ -60,6 +60,20 @@
             <li><?php echo $this->Html->link("Adicionar Servidor","/servers/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Servidores","/servers") ?></li>
           </ul>
+		  <?php if($user['User']['role'] == 'admin'){?>
+		  <h5>Usuários</h5>
+          <ul class="list-sidebar">
+            <li><?php echo $this->Html->link("Adicionar usuários","/users/add") ?></li>
+            <li><?php echo $this->Html->link("Gerenciar usuários","/users") ?></li>
+          </ul>	
+	 	  <?php } ?>
+		<!-- 
+		  <h5>Tarefas</h5>
+		  <ul class="list-sidebar">
+			<li><?php //echo $this->Html->link("Adicionar tarefas","/tasks/add") ?></li>
+			<li><?php //echo $this->Html->link("Visualizar tarefas","/tasks/") ?></li>
+		  </ul>
+		-->
           <h5>Ultimos clientes</h5>
           <ul class="list-sidebar">
 			<?php foreach($clientes as $c){ ?>

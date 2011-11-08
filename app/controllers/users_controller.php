@@ -7,6 +7,7 @@
 
 class UsersController extends AppController {
 
+	var $uses = array("Cliente","User");
 	
 	function beforeFilter() {
 		$this->Auth->fields = array(
@@ -24,11 +25,28 @@ class UsersController extends AppController {
 		$this->Auth->logoutRedirect = array('action' => 'login', 'controller' => 'users');
 		
 		
+		
+		# Cria uma variavel com os dados do usuário
+		$this->set('user', $this->Auth->user());
+		
+		# Cria uma variavel com os ultimos 5 clientes modificados
+		$this->set('clientes', $this->Cliente->ultimosClientes());
+		
+		# Seleciona o menu clientes
+		$this->set('active_menu', 'home');
+		
+		
 	}
 	
 	
 	function index(){
-	
+		
+		if($this->Auth->user('role') != 'admin'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");
+		}else{
+			$this->set('usuarios',$this->User->find('all'));
+		}
 	}
 	
 	
@@ -51,6 +69,44 @@ class UsersController extends AppController {
 				$this->redirect('/dashboard/');
 			}
 		}
+	}
+	
+	function add(){
+		
+		if($this->Auth->user('role') != 'admin'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");
+		}else{
+			if ($this->data) {
+				$this->data['User']['password'] = $this->Auth->hashPasswords($this->data['User']['password']);
+				$this->User->create();
+				if($this->User->save($this->data)){
+					$this->redirect('/users/');
+				}
+			}			
+		}
+
+	}
+	
+	function edit($id = null){
+		
+		if($this->Auth->user('role') != 'admin'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");			
+		}else{
+			$this->set('user',$this->User->findById($id));
+			
+			if(!empty($this->data)){
+				if($this->User->save($this->data)){
+					$this->Session->setFlash('Usuário atualizado com sucesso','flash_success');
+					$this->redirect("/users/");
+				}else{
+					$this->Session->setFlash('Falha ao atualizar o usuário','flash_fail');
+					$this->redirect("/users/");					
+				}
+			}
+		}
+		
 	}
 	
 }

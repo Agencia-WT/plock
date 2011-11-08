@@ -6,7 +6,7 @@ class Export
 										
 		switch @format
 			when "JSON" then @requestAjax @format
-			when "XML" then @showForm()	
+			when "XML" then @requestAjax @format	
 			
 	requestAjax: (@format) ->
 				$.ajax
