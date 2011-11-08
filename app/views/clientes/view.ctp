@@ -71,7 +71,7 @@
 					<?php 
 					if ( !empty($d['servers_id']) )
 					{ 
-						echo '<a href="<?php echo Configure::read('BASE_URL'); ?>servers/view/'.$d['servers_id'].'">Visualizar Servidor</a><br />';
+						echo '<a href="'.Configure::read('BASE_URL').'servers/view/'.$d['servers_id'].'">Visualizar Servidor</a><br />';
 					}
 					else
 					{ 
