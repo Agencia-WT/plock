@@ -12,12 +12,15 @@
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic&v2' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<script src="/plock/lib/alerts.js"></script>
-	<script src="/plock/lib/tableshorter.js"></script>
-	<script src="/plock/lib/modal.js"></script>
-	<script src="/plock/lib/script.js"></script>
-	<script src="/plock/lib/export.js"></script>
-	<script src="/plock/lib/import.js"></script>
+	<script>
+		var BASE_URL = '<?php echo Configure::read('BASE_URL'); ?>';
+	</script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/alerts.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/tableshorter.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/modal.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/script.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/export.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/import.js"></script>
 </head>
 <body>
 
@@ -29,7 +32,7 @@
             <li <?php if($active_menu == 'home'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Home","/") ?></li>
             <li <?php if($active_menu == 'clientes'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Clientes","/clientes") ?></li>
           </ul>
-		  <form class="pull-left" action="/plock/clientes/search" method="post">
+		  <form class="pull-left" action="<?php echo Configure::read('BASE_URL'); ?>clientes/search" method="post">
 			<input type="text" placeholder="Procurar cliente" name="data[Cliente][nome]" class="input-search-cliente-topbar">
 		  </form>
 		  <ul>

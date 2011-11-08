@@ -1,7 +1,7 @@
 <h2>Cadastrar Cliente</h2>
 <hr>
 <?php echo $this->Session->flash(); ?>
-<form id="ClienteAddForm" method="post" action="/plock/clientes/add" accept-charset="utf-8">
+<form id="ClienteAddForm" method="post" action="<?php echo Configure::read('BASE_URL'); ?>clientes/add" accept-charset="utf-8">
 	<fieldset>
 		<legend>Dados Pessoais</legend>
 		<div class="row">

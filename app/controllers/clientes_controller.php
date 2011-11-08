@@ -58,7 +58,7 @@ class ClientesController extends AppController
 				# Salva o Domínio do cliente
 				$this->Dominio->save($dados);
 				
-				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="/plock/clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
+				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="'.Configure::read('BASE_URL').'clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 			}
 			else
 			{
@@ -80,7 +80,7 @@ class ClientesController extends AppController
 		{
 			if ( $this->Cliente->save($this->data) )
 			{
-				$this->Session->setFlash($this->data['Cliente']['nome'].' atualizado com sucesso, clique <a href="/plock/clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
+				$this->Session->setFlash($this->data['Cliente']['nome'].' atualizado com sucesso, clique <a href="'.Configure::read('BASE_URL').'clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 				$this->redirect('/clientes/');
 			}
 			else

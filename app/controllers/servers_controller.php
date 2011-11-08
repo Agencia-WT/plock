@@ -31,7 +31,7 @@ class ServersController extends AppController
 		{
 			if ( $this->Server->save($this->data) )
 			{
-				$this->Session->setFlash('Servidor salvo com sucesso, clique <a href="/plock/servers/view/'.$this->Server->id.'">aqui</a> para visualizar.', 'flash_success');
+				$this->Session->setFlash('Servidor salvo com sucesso, clique <a href="'.Configure::read('BASE_URL').'servers/view/'.$this->Server->id.'">aqui</a> para visualizar.', 'flash_success');
 				$this->redirect("/servers/");
 			}
 			else
@@ -58,7 +58,7 @@ class ServersController extends AppController
 		{
 			if ( $this->Server->save($this->data) )
 			{
-				$this->Session->setFlash('Server atualizado com sucesso, clique <a href="/plock/servers/view/'.$this->Server->id.'">aqui</a> para visualizar.', 'flash_success');
+				$this->Session->setFlash('Server atualizado com sucesso, clique <a href="'.Configure::read('BASE_URL').'servers/view/'.$this->Server->id.'">aqui</a> para visualizar.', 'flash_success');
 				$this->redirect('/servers/');
 			}
 			else

@@ -11,6 +11,7 @@ class Dominio extends AppModel
 	        'foreignKey' => 'clientes_id'
 	    )
 	);  
+	
 }
 
 ?>

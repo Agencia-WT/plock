@@ -2,7 +2,7 @@
   var Export;
   Export = (function() {
     function Export() {
-      this.url = "/plock/clientes/rest";
+      this.url = "" + BASE_URL + "clientes/rest";
     }
     Export.prototype["export"] = function(format) {
       this.format = format;

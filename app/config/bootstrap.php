@@ -40,6 +40,7 @@
  * ));
  *
  */
+	Configure::write('BASE_URL','/plock/');
 
 /**
  * As of 1.3, additional rules for the inflector are added below

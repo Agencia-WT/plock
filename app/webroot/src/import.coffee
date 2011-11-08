@@ -1,6 +1,6 @@
 class Import
 	constructor: ->
-		@url = "/plock/clientes/import"
+		@url = "#{BASE_URL}clientes/import"
 		
 	import: (@format) ->
 		# TODO switch com outros formatos

@@ -1,6 +1,6 @@
 class Export
 	constructor: ->
-		@url = "/plock/clientes/rest"
+		@url = "#{BASE_URL}clientes/rest"
 		
 	export: (@format) ->
 										

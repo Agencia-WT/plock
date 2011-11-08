@@ -2,7 +2,7 @@
   var Import;
   Import = (function() {
     function Import() {
-      this.url = "/plock/clientes/import";
+      this.url = "" + BASE_URL + "clientes/import";
     }
     Import.prototype["import"] = function(format) {
       this.format = format;
