@@ -41,8 +41,12 @@ var $default = array(
 );
 ```
 
-* Troque a URL base no arquivo `app/config/bootstrap.php` para a URl padrão do seu site. Ex: 'http://www.meusite.com.br/'. PS: Lembre SEMPRE de colocar uma barra "/" no final da URL
+* Troque a URL base no arquivo `app/config/bootstrap.php` para a URL padrão do seu site. 
 
+``` php
+# Lembre SEMPRE de colocar uma barra no final da URL do seu site
+Configure::write('BASE_URL','http://www.meusite.comb.br/');
+```
 
 #### TODO
 * Exportar clientes em CSV, XML e HTML
