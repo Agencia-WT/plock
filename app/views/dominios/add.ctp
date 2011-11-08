@@ -1,7 +1,7 @@
 <h2>Cadastrar Domínio para o cliente <?php echo $cliente['Cliente']['nome'] ?></h2>
 <hr>
 <?php echo $this->Session->flash(); ?>
-<form id="FtpAddForm" method="post" action="/plock/dominios/add/<?php echo $cliente['Cliente']['id'] ?>" accept-charset="utf-8">
+<form id="FtpAddForm" method="post" action="<?php echo Configure::read('BASE_URL'); ?>dominios/add/<?php echo $cliente['Cliente']['id'] ?>" accept-charset="utf-8">
 	<fieldset>
 		<legend>Dados do Domínio</legend>
 		<div class="row">

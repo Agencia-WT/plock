@@ -3,7 +3,7 @@
 	<h2><?php echo $server['Server']['nome'] ?></h2>
 	</div>
 	<button class="btn small" style="float:left" onClick="history.back();">Voltar </button>
-	<a href="/plock/servers/edit/<?php echo $server['Server']['id'] ?>"><button class="btn small info" style="float:left;margin-left:10px">Editar servidor</button></a> &nbsp; 
+	<a href="<?php echo Configure::read('BASE_URL'); ?>servers/edit/<?php echo $server['Server']['id'] ?>"><button class="btn small info" style="float:left;margin-left:10px">Editar servidor</button></a> &nbsp; 
 	<button class="btn small danger" data-controls-modal="modal-delete-server" data-backdrop="true" data-keyboard="true" style="float:right">Deletar servidor</button>
 	<hr>
 	<div class="row">
@@ -37,7 +37,7 @@
   		<p>Deseja realmente apagar o server <span><?php echo $server['Server']['nome'] ?></span> ?</p>
 	</div>
 	<div class="modal-footer">
-  		<a href="/plock/servers/delete/<?php echo $server['Server']['id'] ?>" class="btn primary" >Sim</a>
+  		<a href="<?php echo Configure::read('BASE_URL'); ?>servers/delete/<?php echo $server['Server']['id'] ?>" class="btn primary" >Sim</a>
   		<a href="#" class="btn secondary closemodal">Não!</a>
 	</div>
 </div>

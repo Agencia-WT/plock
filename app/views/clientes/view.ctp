@@ -2,8 +2,8 @@
 	<div style="border-bottom:1px solid #EEE;margin-bottom:10px">
 	<h2><?php echo $cliente['Cliente']['nome'] ?></h2>
 	</div>
-	<a href="/plock/clientes" class="link-button"><input type="button" class="btn small" value="Voltar" style="float:left;margin-right:5px"></a> &nbsp;
-	<a href="/plock/clientes/edit/<?php echo $cliente['Cliente']['id'] ?>" class="link-button"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
+	<a href="<?php echo Configure::read('BASE_URL'); ?>clientes" class="link-button"><input type="button" class="btn small" value="Voltar" style="float:left;margin-right:5px"></a> &nbsp;
+	<a href="<?php echo Configure::read('BASE_URL'); ?>clientes/edit/<?php echo $cliente['Cliente']['id'] ?>" class="link-button"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
 	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:right">Deletar cliente</button>
 	<hr>
 	<div class="row">
@@ -71,7 +71,7 @@
 					<?php 
 					if ( !empty($d['servers_id']) )
 					{ 
-						echo '<a href="/plock/servers/view/'.$d['servers_id'].'">Visualizar Servidor</a><br />';
+						echo '<a href="<?php echo Configure::read('BASE_URL'); ?>servers/view/'.$d['servers_id'].'">Visualizar Servidor</a><br />';
 					}
 					else
 					{ 
@@ -95,7 +95,7 @@
 			
 			<?php } ?>
 			<div class="clear"></div>
-			<a href="/plock/dominios/add/<?php echo $cliente['Cliente']['id'] ?>">
+			<a href="<?php echo Configure::read('BASE_URL'); ?>dominios/add/<?php echo $cliente['Cliente']['id'] ?>">
 				<button class="btn small">Adicionar Domínio</button>
 			</a>
 		</div>
@@ -112,7 +112,7 @@
               <p>Deseja realmente apagar o cliente <strong><?php echo $cliente['Cliente']['nome'] ?></strong> ?</p>
             </div>
             <div class="modal-footer">
-              <a href="/plock/clientes/delete/<?php echo $cliente['Cliente']['id'] ?>" class="btn primary" >Sim</a>
+              <a href="<?php echo Configure::read('BASE_URL'); ?>clientes/delete/<?php echo $cliente['Cliente']['id'] ?>" class="btn primary" >Sim</a>
               <a href="#" class="btn secondary closemodal">Não!</a>
             </div>
           </div>
