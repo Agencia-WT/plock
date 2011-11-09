@@ -58,6 +58,7 @@ class UsersController extends AppController {
 		$this->redirect($this->Auth->logout());
 	}
 	
+	
 	function add(){
 		
 		if($this->Auth->user('role') != 'admin'){
