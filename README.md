@@ -12,7 +12,6 @@ Ele tem:
 * Validação automática do ftp de cada cliente informando se está acessível ou não
 * Cadastro de servidores relacionado aos clientes
 * Verificação automática de relação entre servidor -> cliente
-* Controle de usuários
 * Controle de usuários com regras de acesso [ admin, manager, editor, developer, designer ]
 
 #### Para utilizar você precisa ter:
