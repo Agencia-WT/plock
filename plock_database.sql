@@ -141,3 +141,16 @@ ALTER TABLE `tasks`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO  `users` (
+`id` ,
+`name` ,
+`username` ,
+`password` ,
+`email` ,
+`role` ,
+`created` ,
+`modified`
+)
+VALUES (
+NULL ,  'Administrador',  'admin',  'de5f8b171d55d54c799dfaf190b88508afba4abd',  'contato@gmail.com',  'admin',  '2011-11-09 07:16:35',  '2011-11-09 07:16:38'
+);
