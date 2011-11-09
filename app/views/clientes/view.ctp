@@ -11,11 +11,15 @@
 			<h4>Dados pessoais</h4>
 			<div style="float:left;">
 				<span>Contato 1: </span><br/>
-				<span>Contato 2: </span>
+				<span>Contato 2: </span><br/>
+				<span>Telefone 1: </span><br/>
+				<span>Telefone 2: </span>
 			</div>
 			<div style="float:left">
 				<?php echo $cliente['Cliente']['contato_1'] ?><br/>
-				<?php echo $cliente['Cliente']['contato_2'] ?>
+				<?php echo $cliente['Cliente']['contato_2'] ?><br/>
+				<?php echo $cliente['Cliente']['telefone_1'] ?><br/>
+				<?php echo $cliente['Cliente']['telefone_2'] ?>
 			</div>
 			<div class="clear"></div>
 		
