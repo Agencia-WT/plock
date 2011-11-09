@@ -43,15 +43,16 @@ var $default = array(
 
 * Troque a URL base no arquivo `app/config/bootstrap.php` para a URL padrão do seu site. 
 
-Usuário: `admin`
-
-Senha: `admin`
-
-
 ``` php
 # Lembre SEMPRE de colocar uma barra no final da URL do seu site
 Configure::write('BASE_URL','http://www.meusite.comb.br/');
 ```
+
+#### Dados de acesso rápido
+
+Usuário: `admin`
+
+Senha: `admin`
 
 #### TODO
 * Exportar clientes em CSV, XML e HTML
