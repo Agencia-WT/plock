@@ -15,6 +15,13 @@ class ServersController extends AppController
 		
 		# Marca o menu
 		$this->set('active_menu', 'clientes');
+		
+		
+		if($this->Auth->user('role') != 'admin' && $this->Auth->user('role') != 'manager'  && $this->Auth->user('role') != 'developer'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");
+		}
+		
 	}
 	
 	

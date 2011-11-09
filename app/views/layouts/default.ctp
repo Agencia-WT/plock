@@ -55,11 +55,13 @@
 			<li><?php echo $this->Html->link("Importar clientes","/clientes/import") ?></li>
  			<li><?php echo $this->Html->link("Exportar clientes","/clientes/export") ?></li>
           </ul>
+		  <?php if($user['User']['role'] == 'admin' || $user['User']['role'] == 'manager' || $user['User']['role'] == 'developer') {?>
           <h5>Servidores</h5>
           <ul class="list-sidebar">
             <li><?php echo $this->Html->link("Adicionar Servidor","/servers/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Servidores","/servers") ?></li>
           </ul>
+		  <?php } ?>
 		  <?php if($user['User']['role'] == 'admin'){?>
 		  <h5>Usuários</h5>
           <ul class="list-sidebar">
