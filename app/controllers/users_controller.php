@@ -115,6 +115,15 @@ class UsersController extends AppController {
 		
 	}
 	
+	function roles(){
+		if($this->Auth->user('role') != 'admin'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");			
+		}else{
+			
+		}
+	}
+	
 	
 	
 }

@@ -67,6 +67,7 @@
           <ul class="list-sidebar">
             <li><?php echo $this->Html->link("Adicionar usuários","/users/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar usuários","/users") ?></li>
+			<li><?php echo $this->Html->link("Regras de acesso","/users/roles") ?></li>
           </ul>	
 	 	  <?php } ?>
 		<!-- 

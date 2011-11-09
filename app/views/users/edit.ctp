@@ -1,7 +1,7 @@
 <div style="border-bottom:1px solid #EEE;margin-bottom:10px">
 	<h2>Editar usuário</h2>
 </div>
-	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:right">Deletar usuário</button>
+	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:left">Deletar usuário</button>
 	<br/>
 <hr>
 <?php echo $this->Session->flash('auth'); ?>
