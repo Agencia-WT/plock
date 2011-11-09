@@ -58,19 +58,6 @@ class UsersController extends AppController {
 		$this->redirect($this->Auth->logout());
 	}
 	
-	function register() {
-		$this->layout = "login";
-		
-		if ($this->data) {
-			$this->data['User']['password'] = $this->Auth->hashPasswords($this->data['User']['password']);
-			$this->User->create();
-			if($this->User->save($this->data)){
-				$this->Auth->login($this->data);
-				$this->redirect('/dashboard/');
-			}
-		}
-	}
-	
 	function add(){
 		
 		if($this->Auth->user('role') != 'admin'){
