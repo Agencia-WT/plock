@@ -109,6 +109,26 @@ class UsersController extends AppController {
 		
 	}
 	
+	function delete($id = null){
+		
+		if($this->Auth->user('role') != 'admin'){
+			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
+			$this->redirect("/");			
+		}else{
+			
+			if($this->User->delete($id)){
+				$this->Session->setFlash('Usuário removido com sucesso','flash_success');
+				$this->redirect("/users/");				
+			}else{
+				$this->Session->setFlash('Falha ao remover o usuário','flash_fail');
+				$this->redirect("/users/");				
+			}			
+		}
+		
+	}
+	
+	
+	
 }
 
 ### ?>
