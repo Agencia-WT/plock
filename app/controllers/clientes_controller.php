@@ -143,7 +143,15 @@ class ClientesController extends AppController
 			
 			$result = $this->Xml2php->parse($contents);
 			
-			$clientes = $result['FileZilla3']['Servers']['Server'];
+			# Caso sejá apenas um ftp
+			if ( !isset($result['FileZilla3']['Servers']['Server'][0]) )
+			{
+				$clientes[0] = $result['FileZilla3']['Servers']['Server'];
+			}
+			else 
+			{
+				$clientes = $result['FileZilla3']['Servers']['Server'];
+			}
 			
 			$errorsHandler = Array();
 			
@@ -161,14 +169,14 @@ class ClientesController extends AppController
 				$this->Dominio->create();
 				
 				$dados2['Dominio']['ftp_host'] 		  = $c['Host'];
-				$dados2['Dominio']['ftp_username'] 	  = $c['User'];
-				$dados2['Dominio']['ftp_password'] 	  = $c['Pass'];
+				$dados2['Dominio']['ftp_username'] 	  = isset($c['User']) ? $c['User'] : '';
+				$dados2['Dominio']['ftp_password'] 	  = isset($c['Pass']) ? $c['Pass'] : '';
 				$dados2['Dominio']['clientes_id'] = $this->Cliente->id;
 				
 				$this->Dominio->save($dados2);
 			}
 			
-			$this->set("clientesXML", $clientes);
+			$this->set('clientesXML', $clientes);
 		}		
 	}
 	
