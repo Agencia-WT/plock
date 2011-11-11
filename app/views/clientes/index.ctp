@@ -1,6 +1,8 @@
 <?php echo $this->Session->flash(); ?>
 <h1>Gerenciar clientes</h1>
 <hr>
+<a href="<?php echo Configure::read("BASE_URL") ?>clientes/add"><button class="btn small success">Adicionar cliente</button></a>
+<hr>
 <table class="zebra-striped" id="tableClientes">
 	<thead>
 		<tr>

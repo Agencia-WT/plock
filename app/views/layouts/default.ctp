@@ -31,6 +31,12 @@
           <ul class="nav">
             <li <?php if($active_menu == 'home'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Home","/") ?></li>
             <li <?php if($active_menu == 'clientes'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Clientes","/clientes") ?></li>
+			<?php if($user['User']['role'] == 'admin' || $user['User']['role'] == 'manager' || $user['User']['role'] == 'developer') {?>
+				<li <?php if($active_menu == 'servers'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Servidores","/servers"); ?></li>
+			<?php } ?>
+			<?php if($user['User']['role'] == 'admin'){?>
+				<li <?php if($active_menu == 'users'){ ?>class="active"<?php } ?>><?php echo $this->Html->link("Usuários","/users") ?></li>
+			<?php } ?>
           </ul>
 		  <form class="pull-left" action="<?php echo Configure::read('BASE_URL'); ?>clientes/search" method="post">
 			<input type="text" placeholder="Procurar cliente" name="data[Cliente][nome]" class="input-search-cliente-topbar">
@@ -45,7 +51,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="sidebar">
+      <div class="sidebar" >
         <div class="well">
           <h5>Clientes</h5>
           <ul class="list-sidebar">

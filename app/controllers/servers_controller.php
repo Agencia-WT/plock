@@ -14,7 +14,7 @@ class ServersController extends AppController
 		$this->set("clientes",$this->Cliente->ultimosClientes());
 		
 		# Marca o menu
-		$this->set('active_menu', 'clientes');
+		$this->set('active_menu', 'servers');
 		
 		
 		if($this->Auth->user('role') != 'admin' && $this->Auth->user('role') != 'manager'  && $this->Auth->user('role') != 'developer'){

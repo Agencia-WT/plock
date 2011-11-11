@@ -1,6 +1,8 @@
 <?php echo $this->Session->flash(); ?>
 <h1>Gerenciar servidores</h1>
 <hr>
+<a href="<?php echo Configure::read("BASE_URL") ?>servers/add"><button class="btn small success">Adicionar servidor</button></a>
+<hr>
 <table class="zebra-striped" id="tableServers">
 	<thead>
 		<tr>

@@ -33,7 +33,7 @@ class UsersController extends AppController {
 		$this->set('clientes', $this->Cliente->ultimosClientes());
 		
 		# Seleciona o menu clientes
-		$this->set('active_menu', 'home');
+		$this->set('active_menu', 'users');
 		
 		
 	}
