@@ -17,8 +17,13 @@ class User extends AppModel
 			(
 				'rule' 	   => 'alphaNumeric',
 				'required' => true,
-				'message'  => 'Alphabets and numbers only',
+				'message'  => 'Apenas letras e números sem espaços',
 				'on' 	   => 'create'
+			),
+			'isUnique' => array
+			(
+				'rule' => 'isUnique',
+				'message' => 'Usuário já cadastrado'
 			)
 		),
 		'email' => array
@@ -27,7 +32,7 @@ class User extends AppModel
 			(
 				'rule' 	   => 'email',
 				'required' => true,
-				'message'  => 'Alphabets and numbers only'
+				'message'  => 'Email no formato incorreto'
 			)
 		),
 	);

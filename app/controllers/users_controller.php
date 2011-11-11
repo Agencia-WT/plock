@@ -8,6 +8,7 @@
 class UsersController extends AppController {
 
 	var $uses = array("Cliente","User");
+	var $helpers = array("Html","Form","Gravatar");
 	
 	function beforeFilter() {
 		$this->Auth->fields = array(
@@ -70,6 +71,12 @@ class UsersController extends AppController {
 				$this->User->create();
 				if($this->User->save($this->data)){
 					$this->redirect('/users/');
+				}else{
+					$errors =  $this->User->invalidFields();
+					foreach($errors as $e){
+						$this->Session->setFlash($e,'flash_fail');
+					}
+				
 				}
 			}			
 		}
@@ -124,6 +131,17 @@ class UsersController extends AppController {
 		}
 	}
 	
+	
+	function view($usr = null){
+		
+		$user = $this->User->findByUsername($usr);
+		
+		if(count($user) > 0){
+			$this->set("usr",$user);
+		}else{
+			$this->set("error","Usuário não encontrado");
+		}
+	}
 	
 	
 }
