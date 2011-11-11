@@ -76,13 +76,27 @@ class DominiosController extends AppController
 		}
 		else
 		{
-			$a = explode('ftp.', $dominio['Dominio']['ftp_host']);
-			$dom = $a[1];
-		}
+			$exp = "/^(([1]?[0-9]{1,2}|2([0-4][0-9]|5[0-5]))\.){3}([1]?[0-9]{1,2}|2([0-4][0-9]|5[0-5]))$/";
+			
+			# Verifica se o host é um IP
+			if(preg_match($exp,$dominio['Dominio']['ftp_host'])){
+				$ip = $dominio['Dominio']['ftp_host'];
+			}else{
+				
+				$tam = strlen($dominio['Dominio']['ftp_host']);
+				$dom = substr($dominio['Dominio']['ftp_host'],4,$tam);
+
+			}
+
+		}		
 		
-		# Obtem o ip do servidor
-		$info = dns_get_record($dom, DNS_A);
-		$ip = $info[0]['ip'];
+		# Caso o host não seja um IP ele busca o ip do site
+		if(!@$ip){
+			# Obtem o ip do servidor
+			$info = dns_get_record($dom, DNS_A);
+			$ip = $info[0]['ip'];			
+		}
+
 		
 		# Obtem o servidor
 		$server = $this->Server->findByIp($ip);
