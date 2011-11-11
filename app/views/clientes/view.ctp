@@ -2,7 +2,7 @@
 	<div style="border-bottom:1px solid #EEE;margin-bottom:10px">
 	<h2><?php echo $cliente['Cliente']['nome'] ?></h2>
 	</div>
-	<a href="<?php echo Configure::read('BASE_URL'); ?>clientes" class="link-button"><input type="button" class="btn small" value="Voltar" style="float:left;margin-right:5px"></a> &nbsp;
+	<input type="button" class="btn small" value="Voltar" onclick="history.back();" style="float:left;margin-right:5px"> &nbsp;
 	<a href="<?php echo Configure::read('BASE_URL'); ?>clientes/edit/<?php echo $cliente['Cliente']['id'] ?>" class="link-button"><button class="btn small info" style="float:left">Editar cliente</button></a> &nbsp; 
 	<button class="btn small danger" data-controls-modal="modal-delete-cliente" data-backdrop="true" data-keyboard="true" style="float:right">Deletar cliente</button>
 	<hr>
