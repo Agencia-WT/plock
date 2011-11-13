@@ -3,7 +3,7 @@
 class ClientesController extends AppController
 {
 	var $name 		= 'Clientes';
-	var $components = array('RequestHandler', 'Xml2php','Filezilaxml');
+	var $components = array('RequestHandler', 'Xml2php','Filezilaxml', 'Download');
 	var $helpers 	= array('Html', 'Form', 'Ftpcheck');
 	var $uses 		= array('Cliente', 'Dominio', 'Server');
 	
@@ -181,29 +181,34 @@ class ClientesController extends AppController
 	}
 	
 	
-	function rest()
+	function rest($formato = null)
 	{
 		$this->layout = 'none';
 		
-		if ( $_POST )
+		# Verifica se foi especificado algum formato
+		if ( !empty($formato) )
 		{
-			$param 	  = $_POST['format'];
+			# Obtem todos os clientes cadastrados.
 			$clientes = $this->Cliente->find('all');
 
-			switch ( $param )
+			switch ( $formato )
 			{
-				case 'JSON':
+				case 'json':
+					
 					$json = json_encode($clientes);
-					echo '<h3>Resultado</h3>';
-					pr($json);
-				break;
-				case 'XML':
-					$data = $this->Filezilaxml->parse($clientes);
-					echo $data;
-					//pr($clientes);
-				break;
-				case 'HTML':
-				break;
+					$this->Download->download($json, 'Plock_Clientes.json');
+					
+					break;
+					
+				case 'filezilla':
+					
+					$filezilla = $this->Filezilaxml->parse($clientes);
+					$this->Download->download($filezilla, 'Plock_FileZilla.xml');
+					
+					break;
+					
+				case 'html':
+					break;
 			}
 		}
 	}
