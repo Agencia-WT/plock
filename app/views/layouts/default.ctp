@@ -21,6 +21,7 @@
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/script.js"></script>
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/export.js"></script>
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/import.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/tabs.js"></script>
 </head>
 <body>
 
@@ -100,5 +101,11 @@
         </footer>
       </div>
     </div>	
+<script>
+$(function(){
+	$('.tabs').tabs()	
+});
+
+</script>
 </body>
 </html>
