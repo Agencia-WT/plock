@@ -88,6 +88,7 @@ body {
 }
 .link-button{
 	text-decoration:none !important;
+	border:0px !important;
 }
 #tableRegras{
 	margin-top:20px;
