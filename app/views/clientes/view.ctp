@@ -66,14 +66,14 @@
 		
 		  </div>
 		  <div id="dominios">
-		  	<div class="span8">
+		  	<div class="span16">
 				<?php 
 				foreach ( $cliente['Dominio'] as $d ) 
 				{ 
 				 	$status = $this->Ftpcheck->check($d['ftp_host'], $d['ftp_username'], $d['ftp_password']); 
 					?>
 
-				<div class="well box-ftps">
+				<div class="well box-ftps span7">
 					<div style="float:left;width:90px">
 						<span>Url:</span><br/>
 						<span>Servidor:</span><br/>
@@ -109,7 +109,6 @@
 					<div class="clear"></div>
 
 				</div>
-				<div class="clear"></div>
 
 				<?php } ?>
 				<div class="clear"></div>
