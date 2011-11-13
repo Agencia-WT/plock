@@ -15,7 +15,7 @@
 		  <div class="active" id="pessoais">
 			
 		  	<div class="row">
-				<div class="span6">
+				<div class="span8">
 					<h4>Dados pessoais</h4>
 					<div style="float:left;">
 						<span>Contato 1: </span><br/>
