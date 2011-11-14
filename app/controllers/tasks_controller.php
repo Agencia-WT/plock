@@ -29,32 +29,56 @@ class TasksController extends AppController
 		$this->set('active_menu', 'clientes');
 	}
 	
-	function index(){
+	function index()
+	{
 		$this->set("tasks", $this->Task->find('all'));
 	}
 	
-	function add($id = null){
+	function add()
+	{
 		
-		if(!$id){
-			
-			$data = $this->paginate('Cliente');
-			$this->set("data",$data);
+		$this->layout = 'none';
 		
-		}else{
+		$data = array();
+		
+		$data['Task']['conteudo'] =  $_POST['conteudo'];
+		$data['Task']['clientes_id'] = $_POST['id'];
 			
-			$cli = $this->Cliente->findById($id);
-			$this->set("cliente",$cli);
+		$this->Task->save($data);
+		
+		
+		$tk = $this->Task->findById($this->Task->id);
+		
+		$conteudo = '<li><input type="checkbox" name="check" value="'.$tk['Task']['id'].'" class="checkTask"> &nbsp;
+		<span>'.$tk['Task']['conteudo'].'</span></li>';
+		
+		
+		echo $conteudo;
+
+		
+	}
+	
+	function edit()
+	{
+		if( is_numeric($_POST['id']) )
+		{
 			
-			if(!empty($this->data)){
-				
-				$this->Task->save($this->data);
-				$this->Session->setFlash('Tarefa criada com sucesso','flash_success');
-				$this->redirect("/tarefas/");
-				
+			$task = $this->Task->findById($_POST['id']);
+			if( $task['Task']['status'] == 'aberto' )
+			{
+				$status = 'fechado';
 			}
+			else
+			{
+				$status = 'aberto';
+			}
+			
+			$this->Task->read(null,$_POST['id']);
+			$this->Task->set('status',$status);
+			$this->Task->save();
+	
+
 		}
-		
-		
 	}
 }
 

@@ -22,6 +22,7 @@
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/export.js"></script>
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/import.js"></script>
 	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/tabs.js"></script>
+	<script src="<?php echo Configure::read('BASE_URL'); ?>lib/tasks.js"></script>
 </head>
 <body>
 

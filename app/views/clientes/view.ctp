@@ -61,9 +61,6 @@
 				
 			</div>
 		
-		
-		
-		
 		  </div>
 		  <div id="dominios">
 		  	<div class="span16">
@@ -123,11 +120,48 @@
 		  	<div class="row">
 				<div class="span16">
 					<h4>Adicionar tarefa</h4>
-					<form name="formTarefas" method="post" action="">
-					<input type="text" name="data[Task][content]" class="span9"><button class="btn small primary" style="margin-left:10px">Adicionar</button>
-					</form>
+					<div>
+					<input type="hidden" name="data[Task][clientes_id]" value="<?php echo $cliente['Cliente']['id'] ?>" class='hiddentaskid'>
+					<input type="text" name="data[Task][conteudo]" class="span9 contenttaskadd">
+					<button class="btn small primary addTaskBtn" style="margin-left:10px">Adicionar</button>
+					</div>
 					<hr>
 					<h4>Tarefas</h4>
+					<div class="tasks-abertas">
+					<ol>
+					<?php
+					foreach($cliente['Task'] as $t)
+					{
+						if( $t['status'] == 'aberto' ){
+					?>
+							<li>
+								<input type="checkbox" name="check" value="<?php echo $t['id'] ?>" class="checkTask"> &nbsp;
+								<span><?php echo $t['conteudo'] ?></span>
+							</li>
+					<?php	
+						}
+					}
+					?>
+					</ol>
+					</div>
+					<hr>
+					<h4>Concluidas</h4>
+					<div class="tasks-concluidas">
+						<ul>
+							<?php
+							foreach($cliente['Task'] as $t)
+							{
+								if( $t['status'] == 'fechado' ){
+							?>
+									<li>
+										<?php echo $t['conteudo'] ?>
+									</li>
+							<?php	
+								}
+							}
+							?>
+						</ul>
+					</div>
 				</div>
 			</div>
 		

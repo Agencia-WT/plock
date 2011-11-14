@@ -19,3 +19,4 @@ $ ->
 		
 	$('.box-ftps').mouseout ->
 		$(@).children().children('.actions-buttons').children().hide()
+		
