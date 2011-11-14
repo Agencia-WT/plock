@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `titulo` varchar(45) DEFAULT NULL,
   `conteudo` text,
   `data` varchar(45) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'aberto',
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `clientes_id` int(11) NOT NULL,

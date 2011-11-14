@@ -1,4 +1,4 @@
-# Plock Manager v0.5.2
+# Plock Manager v0.6
 [plock](https://github.com/hugodias/) é um gerenciador de clientes feito em cakephp para resolver o problema que muitas fábricas de software e agências de publicidade possuem, que é guardar e gerenciar de forma fácil e prática os dados de todos seus clientes.
 
 
@@ -13,6 +13,7 @@ Ele tem:
 * Cadastro de servidores relacionado aos clientes
 * Verificação automática de relação entre servidor -> cliente
 * Controle de usuários com regras de acesso [ admin, manager, editor, developer, designer ]
+* Rotinas de criação de tarefas para clientes
 
 #### Para utilizar você precisa ter:
 * PHP 5.1 ou superior
