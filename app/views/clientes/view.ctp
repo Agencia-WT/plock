@@ -154,7 +154,7 @@
 								if( $t['status'] == 'fechado' ){
 							?>
 									<li>
-										<?php echo $t['conteudo'] ?>
+									    <?php echo $this->Html->image('trash.png',array('alt' => $t['id'],'class' => 'removeTask')) ?> <?php echo $t['conteudo'] ?>  
 									</li>
 							<?php	
 								}

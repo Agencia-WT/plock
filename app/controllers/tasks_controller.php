@@ -60,6 +60,8 @@ class TasksController extends AppController
 	
 	function edit()
 	{
+		$this->layout = "none";
+		
 		if( is_numeric($_POST['id']) )
 		{
 			
@@ -78,6 +80,17 @@ class TasksController extends AppController
 			$this->Task->save();
 	
 
+		}
+	}
+	
+	
+	function delete(){
+		
+		$this->layout = 'none';
+		
+		if( is_numeric($_POST['id']) )
+		{
+			$this->Task->delete($_POST['id']);
 		}
 	}
 }

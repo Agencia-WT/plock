@@ -93,3 +93,25 @@ body {
 #tableRegras{
 	margin-top:20px;
 }
+.tasks-abertas ol{
+	margin:0px;
+}
+.tasks-abertas ol li{
+	list-style:none;
+	margin-left:0;
+	padding-left:0;
+}
+.tasks-concluidas ul{
+	margin:0px;
+}
+.tasks-concluidas ul li{
+	list-style:none;
+}
+.tasks-concluidas ul li img{
+	margin-right:5px;
+	width:13px;
+	height:13px;
+}
+.removeTask{
+	cursor:pointer;
+}
