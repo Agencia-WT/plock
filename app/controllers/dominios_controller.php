@@ -1,7 +1,9 @@
 <?php
-/**
-* 
-*/
+#doc
+#	classname:	DominiosController
+#	scope:		PUBLIC
+#
+#/doc
 class DominiosController extends AppController
 {
 	var $uses = array('Dominio', 'Cliente', 'Server');

@@ -1,5 +1,9 @@
 <?php
-
+#doc
+#	classname:	AppController
+#	scope:		PUBLIC
+#
+#/doc
 class AppController extends Controller 
 {
 	var $components = array('Auth','Session','Gravatar','DebugKit.Toolbar');

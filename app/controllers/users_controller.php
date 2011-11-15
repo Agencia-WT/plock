@@ -1,16 +1,18 @@
 <?php 
 #doc
-#	classname:	Users_Controller
+#	classname:	UsersController
 #	scope:		PUBLIC
 #
 #/doc
 
-class UsersController extends AppController {
+class UsersController extends AppController 
+{
 
 	var $uses = array("Cliente","User");
 	var $helpers = array("Html","Form","Gravatar");
 	
-	function beforeFilter() {
+	function beforeFilter() 
+	{
 		$this->Auth->fields = array(
 		'username' => 'username',
 		'password' => 'password'
@@ -40,40 +42,59 @@ class UsersController extends AppController {
 	}
 	
 	
-	function index(){
+	function index()
+	{
 		
-		if($this->Auth->user('role') != 'admin'){
+		if(	$this->Auth->user('role') != 'admin' )
+		{
 			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
 			$this->redirect("/");
-		}else{
+		}
+		else
+		{
 			$this->set('usuarios',$this->User->find('all'));
 		}
 	}
 	
 	
-	function login() {
+	function login() 
+	{
 		$this->layout = "login";
 	}
 	
-	function logout() {
+	function logout() 
+	{
 		$this->redirect($this->Auth->logout());
 	}
 	
 	
-	function add(){
+	function add()
+	{
 		
-		if($this->Auth->user('role') != 'admin'){
+		if(	$this->Auth->user('role') != 'admin' )
+		{
 			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
 			$this->redirect("/");
-		}else{
-			if ($this->data) {
+			
+		}
+		else
+		{
+			
+			if ($this->data) 
+			{
 				$this->data['User']['password'] = $this->Auth->hashPasswords($this->data['User']['password']);
 				$this->User->create();
-				if($this->User->save($this->data)){
+				
+				if(	$this->User->save($this->data) )
+				{
 					$this->redirect('/users/');
-				}else{
+				}
+				else
+				{
 					$errors =  $this->User->invalidFields();
-					foreach($errors as $e){
+					
+					foreach($errors as $e)
+					{
 						$this->Session->setFlash($e,'flash_fail');
 					}
 				
@@ -83,19 +104,28 @@ class UsersController extends AppController {
 
 	}
 	
-	function edit($id = null){
+	function edit($id = null)
+	{
 		
-		if($this->Auth->user('role') != 'admin'){
+		if(	$this->Auth->user('role') != 'admin' )
+		{
 			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
 			$this->redirect("/");			
-		}else{
+			
+		}
+		else
+		{
 			$this->set('user',$this->User->findById($id));
 			
-			if(!empty($this->data)){
-				if($this->User->save($this->data)){
+			if(	!empty($this->data) )
+			{
+				if(	$this->User->save($this->data) )
+				{
 					$this->Session->setFlash('Usuário atualizado com sucesso','flash_success');
 					$this->redirect("/users/");
-				}else{
+				}
+				else
+				{
 					$this->Session->setFlash('Falha ao atualizar o usuário','flash_fail');
 					$this->redirect("/users/");					
 				}
@@ -104,17 +134,24 @@ class UsersController extends AppController {
 		
 	}
 	
-	function delete($id = null){
+	function delete($id = null)
+	{
 		
-		if($this->Auth->user('role') != 'admin'){
+		if(	$this->Auth->user('role') != 'admin' )
+		{
 			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
 			$this->redirect("/");			
-		}else{
+		}
+		else
+		{
 			
-			if($this->User->delete($id)){
+			if(	$this->User->delete($id) )
+			{
 				$this->Session->setFlash('Usuário removido com sucesso','flash_success');
 				$this->redirect("/users/");				
-			}else{
+			}
+			else
+			{
 				$this->Session->setFlash('Falha ao remover o usuário','flash_fail');
 				$this->redirect("/users/");				
 			}			
@@ -122,23 +159,31 @@ class UsersController extends AppController {
 		
 	}
 	
-	function roles(){
-		if($this->Auth->user('role') != 'admin'){
+	function roles()
+	{
+		if(	$this->Auth->user('role') != 'admin' )
+		{
 			$this->Session->setFlash('Você não tem acesso a esta area','flash_fail');
 			$this->redirect("/");			
-		}else{
+		}
+		else
+		{
 			
 		}
 	}
 	
 	
-	function view($usr = null){
+	function view($usr = null)
+	{
 		
 		$user = $this->User->findByUsername($usr);
 		
-		if(count($user) > 0){
+		if(	count($user) > 0 )
+		{
 			$this->set("usr",$user);
-		}else{
+		}
+		else
+		{
 			$this->set("error","Usuário não encontrado");
 		}
 	}

@@ -1,5 +1,9 @@
 <?php
-
+#doc
+#	classname:	ServersController
+#	scope:		PUBLIC
+#
+#/doc
 class ServersController extends AppController
 {
 	var $name = 'Servers';

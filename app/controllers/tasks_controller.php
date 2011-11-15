@@ -1,7 +1,9 @@
 <?php
-/**
-* 
-*/
+#doc
+#	classname:	TasksController
+#	scope:		PUBLIC
+#
+#/doc
 class TasksController extends AppController
 {
 	var $name = 'Tasks';
@@ -15,7 +17,9 @@ class TasksController extends AppController
 			'Cliente.nome' => 'asc'
 		)
 	);
-	function beforeFilter(){
+	
+	function beforeFilter()
+	{
 		
 		parent::beforeFilter();
 		
