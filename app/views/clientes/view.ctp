@@ -30,7 +30,7 @@
 						<?php echo $cliente['Cliente']['telefone_2'] ?>
 					</div>
 				</div>
-				<div class="span4">
+				<div class="span8">
 					<h4>Email</h4>
 					<div style="float:left;width:60px">
 						<span>Email 1: </span><br/>
@@ -48,11 +48,9 @@
 				<div class="row">
 					<div class="span16">
 						<hr>
-						<h4>Dados complementares</h4>
-						<div style="float:left;width:90px">
-							<span>Observações: </span>
-						</div>
-						<div style="float:left">
+						<h4>Observações</h4>
+						
+						<div>
 							<?php echo nl2br($cliente['Cliente']['observacoes']) ?>
 						</div>
 					</div>
