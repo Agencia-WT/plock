@@ -1,20 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 3.4.5deb1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tempo de Geração: 06/11/2011 às 21h21min
--- Versão do Servidor: 5.1.58
--- Versão do PHP: 5.3.6-13ubuntu3.2
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Banco de Dados: `plock`
@@ -26,7 +10,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `clientes`
 --
 
-CREATE TABLE IF NOT EXISTS `clientes` (
+CREATE TABLE `clientes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   `contato_1` varchar(45) DEFAULT NULL,
@@ -46,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `created` varchar(45) DEFAULT NULL,
   `modified` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 -- --------------------------------------------------------
 
@@ -54,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 -- Estrutura da tabela `dominios`
 --
 
-CREATE TABLE IF NOT EXISTS `dominios` (
+CREATE TABLE `dominios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) DEFAULT NULL,
   `ftp_host` varchar(255) DEFAULT NULL,
@@ -67,7 +51,23 @@ CREATE TABLE IF NOT EXISTS `dominios` (
   PRIMARY KEY (`id`),
   KEY `fk_ftps_clientes1` (`clientes_id`),
   KEY `servers_id` (`servers_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=98 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `logs`
+--
+
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_id` (`users_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `dominios` (
 -- Estrutura da tabela `servers`
 --
 
-CREATE TABLE IF NOT EXISTS `servers` (
+CREATE TABLE `servers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
   `senha` varchar(255) DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
 -- Estrutura da tabela `tasks`
 --
 
-CREATE TABLE IF NOT EXISTS `tasks` (
+CREATE TABLE `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) DEFAULT NULL,
   `conteudo` text,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `clientes_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tasks_clientes` (`clientes_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
 -- Estrutura da tabela `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -119,8 +119,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Restrições para as tabelas dumpadas
@@ -134,14 +135,18 @@ ALTER TABLE `dominios`
   ADD CONSTRAINT `dominios_ibfk_2` FOREIGN KEY (`servers_id`) REFERENCES `servers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Restrições para a tabela `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Restrições para a tabela `tasks`
 --
 ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 INSERT INTO  `users` (
 `id` ,
 `name` ,
