@@ -832,4 +832,111 @@ class HtmlHelper extends AppHelper {
 		}
 		return $out;
 	}
+	
+	
+	/**
+	* Funcão para retornar a diferença entre um tempo e outro
+	*/
+	function time_stamp($session_time) 
+	{ 
+	$time_difference = time() - $session_time ; 
+
+	$seconds = $time_difference ; 
+	$minutes = round($time_difference / 60 );
+	$hours = round($time_difference / 3600 ); 
+	$days = round($time_difference / 86400 ); 
+	$weeks = round($time_difference / 604800 ); 
+	$months = round($time_difference / 2419200 ); 
+	$years = round($time_difference / 29030400 ); 
+	// Seconds
+	if($seconds <= 60)
+	{
+	echo "$seconds segundos atrás"; 
+	}
+	//Minutes
+	else if($minutes <=60)
+	{
+
+	   if($minutes==1)
+	  {
+	   echo "um minuto atrás"; 
+	   }
+	   else
+	   {
+	    echo "$minutes minutos atrás"; 
+	   }
+
+	}
+	//Hours
+	else if($hours <=24)
+	{
+
+	   if($hours==1)
+	  {
+	   echo "uma hora atrás";
+	  }
+	  else
+	  {
+	   echo "$hours horas atrás";
+	  }
+
+	}
+	//Days
+	else if($days <= 7)
+	{
+
+	  if($days==1)
+	  {
+	   echo "um dia atrás";
+	  }
+	  else
+	  {
+	   echo "$days dias atrás";
+	   }
+
+	}
+	//Weeks
+	else if($weeks <= 4)
+	{
+
+	   if($weeks==1)
+	  {
+	   echo "uma semana atrás";
+	   }
+	  else
+	  {
+	   echo "$weeks semanas atrás";
+	  }
+
+	}
+	//Months
+	else if($months <=12)
+	{
+
+	   if($months==1)
+	  {
+	   echo "um mês atrás";
+	   }
+	  else
+	  {
+	   echo "$months meses atrás";
+	   }
+
+	}
+	//Years
+	else
+	{
+
+	   if($years==1)
+	   {
+	    echo "um ano atrás";
+	   }
+	   else
+	  {
+	    echo "$years anos atrás";
+	   }
+
+	}
+
+	}
 }
