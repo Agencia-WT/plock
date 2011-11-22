@@ -9,7 +9,7 @@ class ClientesController extends AppController
 	var $name 		= 'Clientes';
 	var $components = array('RequestHandler', 'Xml2php','Filezilaxml', 'Download');
 	var $helpers 	= array('Html', 'Form', 'Ftpcheck');
-	var $uses 		= array('Cliente', 'Dominio', 'Server');
+	var $uses 		= array('Cliente', 'Dominio', 'Server', 'Log');
 	
 	var $paginate = array
 	(
@@ -62,6 +62,9 @@ class ClientesController extends AppController
 				# Salva o Domínio do cliente
 				$this->Dominio->save($dados);
 				
+				# Cria o log
+				$this->Log->create($this->Auth->user('id'),' cadastrou o cliente '.$this->data['Cliente']['nome']);
+				
 				$this->Session->setFlash($this->data['Cliente']['nome'].' salvo com sucesso, clique <a href="'.Configure::read('BASE_URL').'clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 			}
 			else
@@ -84,6 +87,9 @@ class ClientesController extends AppController
 		{
 			if ( $this->Cliente->save($this->data) )
 			{
+				# Cria o log
+				$this->Log->create($this->Auth->user('id'),' alterou o cliente '.$this->data['Cliente']['nome'].' ID: '.$this->data['Cliente']['id']);
+				
 				$this->Session->setFlash($this->data['Cliente']['nome'].' atualizado com sucesso, clique <a href="'.Configure::read('BASE_URL').'clientes/view/'.$this->Cliente->id.'">aqui</a> para visualizar.', 'flash_success');
 				$this->redirect('/clientes/');
 			}
@@ -103,9 +109,18 @@ class ClientesController extends AppController
 	
 	function delete($id = null)
 	{
-		$this->Cliente->delete($id);
-		$this->Session->setFlash('Cliente apagado com sucesso!', 'flash_success');
-		$this->redirect('/clientes/');
+		$cliente = $this->Cliente->findById($id);
+		
+		if( $this->Cliente->delete($id) )
+		{
+			# Cria o log
+			$action = ' deletou o cliente '.$cliente['Cliente']['nome'];
+			$this->Log->create( $this->Auth->user('id'), $action );
+			
+			$this->Session->setFlash('Cliente apagado com sucesso!', 'flash_success');
+			$this->redirect('/clientes/');	
+		}
+		
 	}
 	
 	
@@ -178,7 +193,12 @@ class ClientesController extends AppController
 				$dados2['Dominio']['clientes_id'] = $this->Cliente->id;
 				
 				$this->Dominio->save($dados2);
+				
+				
+				
 			}
+			# Cria um log
+			$this->Log->create($this->Auth->user('id'),' importou <strong>'.count($clientes).'</strong> clientes para a base de dados');
 			
 			$this->set('clientesXML', $clientes);
 		}		

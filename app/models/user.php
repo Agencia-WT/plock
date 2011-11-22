@@ -9,6 +9,13 @@ class User extends AppModel
 {
 	var $name = 'User';
 	
+    var $hasMany = array(
+        'Log' => array(
+            'className'     => 'Log',
+            'foreignKey'    => 'users_id'
+        )
+    );
+	
 	var $validate = array
 	(
 		'username' => array

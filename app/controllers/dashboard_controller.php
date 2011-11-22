@@ -8,7 +8,8 @@ class DashboardController extends AppController
 {
 
 		var $name = 'Dashboard';
-		var $uses = array("User","Cliente","Server");
+		var $uses = array("User","Cliente","Server","Log");
+		var $helpers = array("Form","Html","Gravatar");
 		
 		function beforeFilter()
 		{
@@ -22,6 +23,7 @@ class DashboardController extends AppController
 		
 		function index () 
 		{
+			$this->set('log', $this->Log->getLatest());
 			$this->set('user', $this->Auth->user());
 			$this->set('nclientes', $this->Cliente->find('count'));
 			$this->set('nservers', $this->Server->find('count'));
