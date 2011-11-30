@@ -1,13 +1,5 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
 --
--- Banco de Dados: `plock`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -35,7 +27,7 @@ CREATE TABLE `clientes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dominios`
+-- Table structure for table `dominios`
 --
 
 CREATE TABLE `dominios` (
@@ -56,7 +48,7 @@ CREATE TABLE `dominios` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `logs`
+-- Table structure for table `logs`
 --
 
 CREATE TABLE `logs` (
@@ -67,12 +59,31 @@ CREATE TABLE `logs` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `users_id` (`users_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=56 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'active',
+  `type` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_id` (`users_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `servers`
+-- Table structure for table `servers`
 --
 
 CREATE TABLE `servers` (
@@ -88,7 +99,7 @@ CREATE TABLE `servers` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tasks`
+-- Table structure for table `tasks`
 --
 
 CREATE TABLE `tasks` (
@@ -102,12 +113,12 @@ CREATE TABLE `tasks` (
   `clientes_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tasks_clientes` (`clientes_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -124,28 +135,33 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Restrições para as tabelas dumpadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para a tabela `dominios`
+-- Constraints for table `dominios`
 --
 ALTER TABLE `dominios`
   ADD CONSTRAINT `dominios_ibfk_1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `dominios_ibfk_2` FOREIGN KEY (`servers_id`) REFERENCES `servers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `logs`
+-- Constraints for table `logs`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `tasks`
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `tasks`
 --
 ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 
 INSERT INTO  `users` (
 `id` ,
