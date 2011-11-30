@@ -59,7 +59,6 @@
           <ul class="list-sidebar">
             <li><?php echo $this->Html->link("Adicionar Cliente","/clientes/add") ?></li>
             <li><?php echo $this->Html->link("Gerenciar Clientes","/clientes") ?></li>
-            <li><?php echo $this->Html->link("Procurar","/dashboard/") ?></li>
 			<li><?php echo $this->Html->link("Importar clientes","/clientes/import") ?></li>
  			<li><?php echo $this->Html->link("Exportar clientes","/clientes/export") ?></li>
           </ul>
@@ -78,6 +77,13 @@
 			<li><?php echo $this->Html->link("Regras de acesso","/users/roles") ?></li>
           </ul>	
 	 	  <?php } ?>
+		  <?php if($user['User']['role'] == 'admin'){?>
+		  <h5>Mensagens</h5>
+	      <ul class="list-sidebar">
+	      	<li><?php echo $this->Html->link("Criar mensagem","/messages/add") ?></li>
+	      	<li><?php echo $this->Html->link("Gerenciar mensagens","/messages") ?></li>
+	      </ul>			
+		  <?php } ?>
 		<!-- 
 		  <h5>Tarefas</h5>
 		  <ul class="list-sidebar">

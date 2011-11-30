@@ -1,8 +1,42 @@
-<h1>Procurar cliente</h1>
-<form name="form1" method="post" action="<?php echo Configure::read('BASE_URL'); ?>clientes/search">
-<input type="text" class="span10" name="data[Cliente][nome]" placeholder="Cliente"><button class="btn primary" style="margin-left:10px">Procurar</button>
-</form>
-<hr>
+<?php
+
+if( count(@$messages) > 0)
+{
+	foreach($messages as $m){
+		$type = $m['Message']['type'];
+		$class = '';
+		switch($type)
+		{
+			case 'urgente':
+			$class = 'error';
+			$title[0] = '<h2>';
+			$title[1] = '</h2>';
+			break;
+			case 'comunicado':
+			$class = 'info';
+			$title[0] = '<h4>';
+			$title[1] = '</h4>';
+			break;
+			case 'importante':
+			$class = 'warning';
+			$title[0] = '<h3>';
+			$title[1] = '</h3>';
+			break;
+		}
+
+		echo '<div class="alert-message block-message '.$class.'">';
+		echo '<a class="close" href="#">x</a>';
+		echo $title[0].''.$m['Message']['title'].''.$title[1];
+		echo '<p>'.str_replace("\n","<br/>",$m['Message']['content']).'</p>';
+		echo '<hr/>';
+		echo '<i style="font-size:11px"><strong>Criado por:</strong> '.$m['User']['username'].'</i>';
+		echo '</div>';
+	}	
+	
+	echo '<hr/>';
+}
+
+?>
 <h3>Atividade recente</h3>
 <div class="atividade-recente">
 	<ol>

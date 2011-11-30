@@ -135,6 +135,7 @@ form div.clearfix.error .input-prepend span.add-on,form div.clearfix.error .inpu
 .input-xlarge,input.xlarge,textarea.xlarge,select.xlarge{width:270px;}
 .input-xxlarge,input.xxlarge,textarea.xxlarge,select.xxlarge{width:530px;}
 textarea.xxlarge{overflow-y:auto;}
+.input .error{ color: #b94a48; border-color: #ee5f5b;}
 input.span1,textarea.span1,select.span1{display:inline-block;float:none;width:30px;margin-left:0;}
 input.span2,textarea.span2,select.span2{display:inline-block;float:none;width:90px;margin-left:0;}
 input.span3,textarea.span3,select.span3{display:inline-block;float:none;width:150px;margin-left:0;}

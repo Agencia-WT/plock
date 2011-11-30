@@ -13,7 +13,11 @@ class User extends AppModel
         'Log' => array(
             'className'     => 'Log',
             'foreignKey'    => 'users_id'
-        )
+        ),
+		'Message' => array(
+			'className' => 'Message',
+			'foreignKey' => 'users_id'
+		)
     );
 	
 	var $validate = array
