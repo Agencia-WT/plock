@@ -39,6 +39,18 @@ class UsersController extends AppController
 		$this->set('active_menu', 'users');
 		
 		
+		// Enviando email pelo GMAIL
+		$this->Email->smtpOptions = array(
+	        'port'=>'465', 
+	        'timeout'=>'30',
+	        'host' => 'ssl://smtp.gmail.com',
+	        'username'=>'email_aqui',
+	        'password'=>'senha_aqui',
+	   );
+
+	    $this->Email->delivery = 'smtp';
+		
+		
 	}
 	
 	
@@ -82,11 +94,17 @@ class UsersController extends AppController
 			
 			if ($this->data) 
 			{
+				
 				$this->data['User']['password'] = $this->Auth->hashPasswords($this->data['User']['password']);
 				$this->User->create();
 				
 				if(	$this->User->save($this->data) )
 				{
+					// Manda o email de boas vindas
+					// Para habilitar basta remover o comentário e configurar os dados no beforeFilter()
+					
+					# $this->_sendEmailBoasVindas($this->User->id,$this->Auth->user('name'));
+					
 					$this->redirect('/users/');
 				}
 				else
@@ -187,6 +205,34 @@ class UsersController extends AppController
 			$this->set("error","Usuário não encontrado");
 		}
 	}
+	
+	
+
+	function _sendEmailBoasVindas($id,$name) 
+	{
+	    $User = $this->User->read(null,$id);
+	
+	    $this->Email->to = $User['User']['email'];
+	
+	    $this->Email->subject = 'Seja bem vindo(a) ao Plock!';
+	    $this->Email->replyTo = 'no-reply@plock.com.br';
+	    $this->Email->from = 'Plock* <no-reply@plock.com.br>';
+	    $this->Email->template = 'simple_message'; // note no '.ctp'
+	    //Send as 'html', 'text' or 'both' (default is 'text')
+	    $this->Email->sendAs = 'both'; // because we like to send pretty mail
+	    //Set view variables as normal
+	
+	    $this->set('usr', $User);
+		$this->set('adm',$name);
+		$this->set('url',Configure::read('BASE_URL'));
+		$this->set('pass',$pass);
+		
+	    //Do not pass any args to send()
+	    $this->Email->send();
+	 }
+	
+
+
 	
 	
 }

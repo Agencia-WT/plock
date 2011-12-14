@@ -65,6 +65,8 @@ class User extends AppModel
 	{
 		return $this->Auth->user();
 	}
+	
+	
 
 }
 ### ?>

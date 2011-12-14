@@ -45,10 +45,19 @@ class MessagesController extends AppController
 			}
 			if( $this->Message->save( $this->data ) )
 			{
+				
+				if( $this->data['Message']['type'] == 'urgente'){
+					// Envia mensagem de urgencia para todos os usuários
+					// Para habilitar remover o comentário e configurar o email no AppController
+					
+					# $this->_sendAlertMessage($this->data['Message']['title'],$this->data['Message']['content']);
+				}
+				
 				# Cria um log
 				$this->Log->create($this->Auth->user('id'),' criou um informativo');
 
 				$this->Session->setFlash('Mensagem cadastrada com sucesso!', 'flash_success');
+				
 
 				$this->redirect('/messages/');
 			}
@@ -99,6 +108,30 @@ class MessagesController extends AppController
 		$this->Message->delete($id);
 		$this->Session->setFlash('Mensagem removida com sucesso!', 'flash_success');
 		$this->redirect("/messages/");
+		
+	}
+	
+	function _sendAlertMessage($titulo,$message)
+	{
+		
+		$users = $this->User->find('all');
+		
+		foreach($users as $u)
+		{
+			$this->Email->to = $u['User']['email'];
+			$this->Email->subject = $titulo;
+			
+			$this->Email->replyTo = 'no-reply@plock.com.br';
+		    $this->Email->from = 'Plock* <no-reply@plock.com.br>';
+		    $this->Email->template = 'alert_message'; // note no '.ctp'
+		
+		 	$this->Email->sendAs = 'both'; // because we like to send pretty mail
+		
+			$this->set('message',$message);
+			
+			$this->Email->send();
+		}
+		
 		
 	}
 }

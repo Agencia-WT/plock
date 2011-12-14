@@ -6,7 +6,7 @@
 #/doc
 class AppController extends Controller 
 {
-	var $components = array('Auth','Session','Gravatar','DebugKit.Toolbar');
+	var $components = array('Auth','Session','Gravatar','DebugKit.Toolbar','Email');
 
 	function beforeFilter()
 	{
@@ -16,6 +16,19 @@ class AppController extends Controller
 		$this->Auth->authError 		= 'Você está tentando acessar uma área restrita, faça login para continuar.';
 		$this->Auth->loginRedirect  = array('action' => 'profile', 'controller' => 'users');
 		$this->Auth->logoutRedirect = array('action' => 'login',   'controller' => 'users');
+
+
+		// Enviando email pelo GMAIL
+		$this->Email->smtpOptions = array(
+	        'port'=>'465', 
+	        'timeout'=>'30',
+	        'host' => 'ssl://smtp.gmail.com',
+	        'username'=>'email_aqui',
+	        'password'=>'senha_aqui',
+	   );
+
+	    $this->Email->delivery = 'smtp';
+	   
 	}
 }
 
