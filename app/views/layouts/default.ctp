@@ -100,8 +100,8 @@
         </div>
       </div>
       <div class="content">
-        <?php echo $this->Session->flash(); ?>
-		<?php echo $content_for_layout; ?>
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $content_for_layout; ?>
 
         <footer>
           <p>&copy; Plock* 2011</p>
@@ -111,6 +111,7 @@
 <script>
 $(function(){
 	$('.tabs').tabs()	
+	$('.input-search-cliente-topbar').focus();
 });
 
 </script>
